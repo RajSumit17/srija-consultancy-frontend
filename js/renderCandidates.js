@@ -37,7 +37,7 @@ const fetchCurrentUser = () => {
 fetchCurrentUser()
 async function fetchAndRenderCandidates() {
   const res = await fetch(
-    "http://localhost:8080/api/candidate/fetchAllCandidates"
+    "https://srija-consultancy-backend.onrender.com/api/candidate/fetchAllCandidates"
   );
   const data = await res.json(); // assuming { candidates: [...] }
   const candidates = data.candidates;

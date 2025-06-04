@@ -46,7 +46,7 @@ export async function loginUser(userType) {
         : "admin";
 
     try {
-      const res = await fetch(`http://localhost:8080/api/login/${path}`, {
+      const res = await fetch(`https://srija-consultancy-backend.onrender.com/api/login/${path}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

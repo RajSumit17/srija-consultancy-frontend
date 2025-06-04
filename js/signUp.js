@@ -45,7 +45,7 @@ export async function signupCandidate() {
     formData.append("education", education);
     formData.append("resume", resume);
 
-    const res = await fetch("http://localhost:8080/api/signup/candidate", {
+    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/signup/candidate", {
       method: "POST",
       body: formData,
     });
@@ -97,7 +97,7 @@ export const signupRecruiter = async () => {
     formData.append("contactPersonName", contactPersonName);
     formData.append("email", email);
     formData.append("number", number);
-    const res = await fetch("http://localhost:8080/api/signup/recruiter", {
+    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/signup/recruiter", {
       method: "POST",
       body: formData,
     });

@@ -42,7 +42,7 @@ const form = document.getElementById("addJobForm");
 
 // Fetch and render all jobs
 async function fetchAndRenderJobs() {
-  const res = await fetch("http://localhost:8080/api/jobs/getAllJobs");
+  const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getAllJobs");
   const data = await res.json(); // data = { jobs: [...] }
   const jobs = data.jobs; // extract the array
   // Clear old jobs
@@ -102,7 +102,7 @@ async function fetchAndRenderJobs() {
 
       try {
         const res = await fetch(
-          "http://localhost:8080/api/apply/notify-interest",
+          "https://srija-consultancy-backend.onrender.com/api/apply/notify-interest",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -187,7 +187,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   // Send job to backend
-  const res = await fetch("http://localhost:8080/api/jobs/add-job", {
+  const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/add-job", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(jobData),

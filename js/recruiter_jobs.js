@@ -48,7 +48,7 @@ console.log(recruiterEmail);
 async function fetchRequestedJobs() {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/recruiter/getJobsPosted`,
+      `https://srija-consultancy-backend.onrender.com/api/recruiter/getJobsPosted`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -184,7 +184,7 @@ async function updateJob(jobId, updatedData) {
     const email = recruiterEmail;
     console.log(jobId, email);
     const response = await fetch(
-      `http://localhost:8080/api/recruiter/updateJob`,
+      `https://srija-consultancy-backend.onrender.com/api/recruiter/updateJob`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -210,7 +210,7 @@ async function updateJob(jobId, updatedData) {
 async function deleteJob(jobId) {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/recruiter/deleteJob`,
+      `https://srija-consultancy-backend.onrender.com/api/recruiter/deleteJob`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/recruiter/requestJobPosting",
+        "https://srija-consultancy-backend.onrender.com/api/recruiter/requestJobPosting",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
