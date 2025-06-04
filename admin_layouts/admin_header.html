@@ -1,0 +1,100 @@
+<!-- header.html -->
+<nav
+  class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
+>
+  <div class="container-fluid">
+    <!-- Original logo + title (unchanged) -->
+    <a
+      href="admin_index.html"
+      class="navbar-brand p-0 d-flex align-items-center"
+    >
+      <img
+        src="../img/logo.jpg"
+        alt="Logo"
+        style="height: 100px; width: auto"
+        class="me-2"
+      />
+      <h1 class="m-0 text-uppercase" style="color: #164259 !important">
+        SRIJA CONSULTANCY
+      </h1>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto d-flex align-items-center gap-3 me-3 py-2">
+        <li class="nav-item">
+          <a href="admin_index.html" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="admin_about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="admin_jobs.html" class="nav-link">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a href="admin_candidate.html" class="nav-link">Candidates</a>
+        </li>
+        <li class="nav-item">
+          <a href="admin_contact.html" class="nav-link">Contact</a>
+        </li>
+        <li>
+          <button
+            class="btn nav-item nav-link border-0 w-auto d-inline-block"
+            onclick="handleLogout()"
+            style="margin-left: 10px"
+          >
+            Logout
+          </button>
+        </li>
+        <!-- Profile dropdown
+        <li class="nav-item dropdown">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle d-flex align-items-center"
+            id="profileDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="Profile"
+              width="30"
+              height="30"
+              class="rounded-circle me-2"
+            />
+            <span id="userName" class="d-none d-md-inline">User</span>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="profileDropdown"
+          >
+            <li>
+              <h6 class="dropdown-header" id="userDropdownName">Welcome</h6>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <button
+                class="btn nav-item nav-link border-0 w-auto d-inline-block"
+                onclick="handleLogout()"
+                style="margin-left: 10px"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Optional script to populate user name from session -->

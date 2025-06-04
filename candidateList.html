@@ -1,0 +1,320 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candidates</title>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #FFF;
+            color: #000;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .job-list {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .job-list h1 {
+            color: #000;
+            font-weight: 700;
+            font-family: 'Barlow', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .job-card {
+            background: #FFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            transition: box-shadow 0.3s ease;
+            border-left: 6px solid #152440;
+            position: relative;
+        }
+
+        .job-card:hover {
+            box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+            border-left-color: #F3525A;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #152440;
+            margin: 0 0 6px 0;
+        }
+
+        .role {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #000;
+        }
+
+        .job-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+            font-size: 0.95rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: #152440;
+            border-radius: 4px;
+            padding: 6px 14px;
+            white-space: nowrap;
+            color: #FFF;
+            font-weight: 600;
+            box-shadow: inset 1px 1px 3px rgb(255 255 255 / 0.3);
+            user-select: none;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: #000;
+            margin: 12px 0 8px 0;
+            font-size: 1.1rem;
+            border-bottom: 2px solid  #152440;
+            padding-bottom: 4px;
+            user-select: none;
+        }
+
+        .job-description,
+        .job-qualification,
+        .job-responsibility {
+            font-size: 1rem;
+            color: #000;
+            line-height: 1.5;
+            margin: 0 0 10px 0;
+        }
+
+        ul.responsibility-list {
+            margin: 0 0 10px 20px;
+            padding-left: 0;
+            color: #000;
+        }
+
+        ul.responsibility-list li {
+            margin-bottom: 6px;
+        }
+
+        .apply-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background-color: #152440;
+            border: none;
+            color: #FFF;
+            padding: 8px 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+
+        .apply-btn:hover {
+            background-color: #F3525A;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(21, 36, 64, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #FFF;
+            border-radius: 8px;
+            max-width: 480px;
+            width: 90%;
+            padding: 25px 30px;
+            position: relative;
+            box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+            animation: fadeInScale 0.3s ease forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: #152440;
+        }
+
+        .modal label {
+            display: block;
+            margin: 15px 0 6px 0;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: #152440;
+            outline: none;
+        }
+
+        .modal textarea {
+            min-height: 90px;
+        }
+
+        .modal-buttons {
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        .btn-submit {
+            background-color: #152440;
+            border: none;
+            color: #FFF;
+            padding: 10px 22px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0f1b2d;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: none;
+            color: #152440;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 12px;
+            font-size: 1rem;
+        }
+
+        .btn-cancel:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #F3525A;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+            display: none;
+        }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
+    >
+      <a
+        href="jobs_recruiter_admin.html"
+        class="navbar-brand p-0 d-flex align-items-center"
+      >
+        <img
+          src="img/logo.jpg"
+          alt="Logo"
+          style="height: 100px; width: auto"
+          class="me-2"
+        />
+        <h1 class="m-0 text-uppercase" style="color: #152440 !important">
+          SRIJA CONSULTANCY
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0 me-n3">
+          <a href="jobs_recruiter_admin.html" class="nav-item nav-link active"
+            >Jobs</a
+          >
+          <a href="contact.html" class="nav-item nav-link">Contact</a>
+          <a href="#" class="nav-item nav-link" id="navbarUsername">User</a>
+          <a
+            href="candidateList.html"
+            class="nav-item nav-link"
+            id="navbarUsername"
+            >Candidates</a
+          >
+          <a href="index.html" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+    <div class="job-list" id="candidateListContainer">
+      <h1>Candidates List</h1>
+    </div>
+    <script src="./js/renderCandidates.js"></script>
+  </body>
+</html>

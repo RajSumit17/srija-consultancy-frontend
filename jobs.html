@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Jobs- Srija Consultancy </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #FFF;
+            color: #000;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .job-list {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .job-list h1 {
+            color: #000;
+            font-weight: 700;
+            font-family: 'Barlow', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .job-card {
+            background: #FFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            transition: box-shadow 0.3s ease;
+            border-left: 6px solid #152440;
+            position: relative;
+        }
+
+        .job-card:hover {
+            box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+            border-left-color: #F3525A;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #152440;
+            margin: 0 0 6px 0;
+        }
+
+        .role {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #000;
+        }
+
+        .job-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+            font-size: 0.95rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: #152440;
+            border-radius: 4px;
+            padding: 6px 14px;
+            white-space: nowrap;
+            color: #FFF;
+            font-weight: 600;
+            box-shadow: inset 1px 1px 3px rgb(255 255 255 / 0.3);
+            user-select: none;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: #000;
+            margin: 12px 0 8px 0;
+            font-size: 1.1rem;
+            border-bottom: 2px solid  #152440;
+            padding-bottom: 4px;
+            user-select: none;
+        }
+
+        .job-description,
+        .job-qualification,
+        .job-responsibility {
+            font-size: 1rem;
+            color: #000;
+            line-height: 1.5;
+            margin: 0 0 10px 0;
+        }
+
+        ul.responsibility-list {
+            margin: 0 0 10px 20px;
+            padding-left: 0;
+            color: #000;
+        }
+
+        ul.responsibility-list li {
+            margin-bottom: 6px;
+        }
+
+        .apply-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background-color: #152440;
+            border: none;
+            color: #FFF;
+            padding: 8px 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+
+        .apply-btn:hover {
+            background-color: #F3525A;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(21, 36, 64, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #FFF;
+            border-radius: 8px;
+            max-width: 480px;
+            width: 90%;
+            padding: 25px 30px;
+            position: relative;
+            box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+            animation: fadeInScale 0.3s ease forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: #152440;
+        }
+
+        .modal label {
+            display: block;
+            margin: 15px 0 6px 0;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: #152440;
+            outline: none;
+        }
+
+        .modal textarea {
+            min-height: 90px;
+        }
+
+        .modal-buttons {
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        .btn-submit {
+            background-color: #152440;
+            border: none;
+            color: #FFF;
+            padding: 10px 22px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0f1b2d;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: none;
+            color: #152440;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 12px;
+            font-size: 1rem;
+        }
+
+        .btn-cancel:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #F3525A;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+        <div class="row gx-0"></div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+            <img src="img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2">
+            <h1 class="m-0 text-uppercase" style="color: #164259 !important;">SRIJA CONSULTANCY</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 me-n3">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="jobs.html" class="nav-item nav-link">Jobs</a>
+                <a href="../registration_layouts/signIn.html" class="nav-item nav-link">Login</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Job Postings Start -->
+    <!-- Job Search Bar Start -->
+    <div class="container" style="max-width:900px; margin: 30px auto 0 auto;">
+        <form id="jobSearchForm" class="d-flex mb-4" role="search" autocomplete="off">
+            <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search jobs by title, company, location..."
+                aria-label="Search jobs"
+                id="jobSearchInput"
+                style="font-size:1.1rem; border-radius:6px;"
+            />
+            <button class="btn btn-primary" type="submit" style="border-radius:6px;">Search</button>
+        </form>
+    </div>
+    <!-- Job Search Bar End -->
+
+    <div class="job-list">
+        <h1>Current Job Postings</h1>
+
+        <div class="job-card" data-job="Frontend Developer at Tech Innovators Inc.">
+            <div class="company-name">Tech Innovators Inc.</div>
+            <div class="role">Frontend Developer</div>
+            <div class="job-info">
+                <div class="info-item">Salary: $80,000 - $100,000 / year</div>
+                <div class="info-item">Job Type: Full-time</div>
+                <div class="info-item">Location: New York, NY</div>
+                <div class="info-item">Experience: 2-4 years</div>
+                <div class="info-item">Vacancy: 3 positions</div>
+            </div>
+            <div>
+                <div class="section-title">Description</div>
+                <p class="job-description">
+                    Develop and maintain user-friendly websites and web applications using HTML, CSS, and JavaScript
+                    frameworks. Collaborate with design and backend teams to create seamless user experiences.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Qualification</div>
+                <p class="job-qualification">
+                    Bachelor’s degree in Computer Science or related field. Strong knowledge of modern JavaScript
+                    frameworks such as React or Vue.js.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Responsibilities</div>
+                <ul class="responsibility-list">
+                    <li>Build reusable code and libraries for future use.</li>
+                    <li>Ensure the technical feasibility of UI/UX designs.</li>
+                    <li>Optimize application for maximum speed and scalability.</li>
+                    <li>Collaborate with backend developers and web designers to improve usability.</li>
+                </ul>
+            </div>
+            <button class="apply-btn" type="button">Interested</button>
+        </div>
+
+        <div class="job-card" data-job="Data Analyst at Data Insights Ltd.">
+            <div class="company-name">Data Insights Ltd.</div>
+            <div class="role">Data Analyst</div>
+            <div class="job-info">
+                <div class="info-item">Salary: $70,000 - $90,000 / year</div>
+                <div class="info-item">Job Type: Remote / Full-time</div>
+                <div class="info-item">Location: Remote</div>
+                <div class="info-item">Experience: 1-3 years</div>
+                <div class="info-item">Vacancy: 2 positions</div>
+            </div>
+            <div>
+                <div class="section-title">Description</div>
+                <p class="job-description">
+                    Analyze data sets to generate business insights and reports. Work with stakeholders to understand data
+                    needs and develop actionable recommendations.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Qualification</div>
+                <p class="job-qualification">
+                    Bachelor’s degree in Statistics, Mathematics, or related field. Proficiency in SQL, Excel, and data
+                    visualization tools.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Responsibilities</div>
+                <ul class="responsibility-list">
+                    <li>Collect, process, and perform statistical analyses on data.</li>
+                    <li>Interpret data, analyze results using statistical techniques.</li>
+                    <li>Develop and implement data analyses and reports.</li>
+                    <li>Work with management to prioritize business and information needs.</li>
+                </ul>
+            </div>
+            <button class="apply-btn" type="button">Interested</button>
+        </div>
+
+        <div class="job-card" data-job="Product Manager at NextGen Solutions">
+            <div class="company-name">NextGen Solutions</div>
+            <div class="role">Product Manager</div>
+            <div class="job-info">
+                <div class="info-item">Salary: $120,000 - $140,000 / year</div>
+                <div class="info-item">Job Type: Full-time</div>
+                <div class="info-item">Location: San Francisco, CA</div>
+                <div class="info-item">Experience: 5+ years</div>
+                <div class="info-item">Vacancy: 1 position</div>
+            </div>
+            <div>
+                <div class="section-title">Description</div>
+                <p class="job-description">
+                    Lead cross-functional teams to define, develop, and launch new products. Prioritize product features
+                    based on market research and customer feedback, ensuring successful product lifecycle management.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Qualification</div>
+                <p class="job-qualification">
+                    Bachelor’s degree in Business, Engineering or related field. Proven experience in product management and
+                    Agile methodologies.
+                </p>
+            </div>
+            <div>
+                <div class="section-title">Responsibilities</div>
+                <ul class="responsibility-list">
+                    <li>Define product vision and strategy aligned with company goals.</li>
+                    <li>Work closely with engineering, design, marketing, and sales teams.</li>
+                    <li>Gather and prioritize product and customer requirements.</li>
+                    <li>Monitor product performance and implement improvements.</li>
+                </ul>
+            </div>
+            <button class="apply-btn" type="button">Interested</button>
+        </div>
+    </div>
+
+    <script>
+        // Job Search Functionality
+        document.getElementById('jobSearchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const query = document.getElementById('jobSearchInput').value.trim().toLowerCase();
+            document.querySelectorAll('.job-card').forEach(card => {
+                // Search by title, company, location, and description
+                const title = card.querySelector('.role')?.innerText.toLowerCase() || '';
+                const company = card.querySelector('.company-name')?.innerText.toLowerCase() || '';
+                const location = Array.from(card.querySelectorAll('.info-item')).find(i => i.innerText.toLowerCase().includes('location:'))?.innerText.toLowerCase() || '';
+                const description = card.querySelector('.job-description')?.innerText.toLowerCase() || '';
+                const match = (
+                    title.includes(query) ||
+                    company.includes(query) ||
+                    location.includes(query) ||
+                    description.includes(query)
+                );
+                card.style.display = (!query || match) ? '' : 'none';
+            });
+        });
+        // Optional: Reset search on input clear
+        document.getElementById('jobSearchInput').addEventListener('input', function () {
+            if (!this.value.trim()) {
+                document.querySelectorAll('.job-card').forEach(card => card.style.display = '');
+            }
+        });
+    </script>
+    <!-- Job Postings End -->
+
+    <!-- Modal Apply Form -->
+    <div class="modal-overlay" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+        <div class="modal">
+            <h2 id="modalTitle">Apply for Job</h2>
+            <form id="applyForm" novalidate>
+                <div>
+                    <label for="applicantName">Full Name<span style="color:#F3525A">*</span></label>
+                    <input type="text" id="applicantName" name="applicantName" required />
+                    <div class="error-message" id="nameError">Please enter your name.</div>
+                </div>
+                <div>
+                    <label for="applicantEmail">Email<span style="color:#F3525A">*</span></label>
+                    <input type="email" id="applicantEmail" name="applicantEmail" required />
+                    <div class="error-message" id="emailError">Please enter a valid email.</div>
+                </div>
+                <div>
+                    <label for="applicantPhone">Phone Number<span style="color:#F3525A">*</span></label>
+                    <input type="tel" id="applicantPhone" name="applicantPhone" pattern="[\d\s\-\+\(\)]{7,}" required />
+                    <div class="error-message" id="phoneError">Please enter a valid phone number.</div>
+                </div>
+                <div>
+                    <label for="applicantMessage">Message / Cover Letter</label>
+                    <textarea id="applicantMessage" name="applicantMessage" placeholder="Write a brief message..."></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-submit">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-secondary p-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <h3 class="text-white mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="jobs.html"><i class="bi bi-arrow-right text-primary me-2"></i>Jobs</a>
+                    <a class="text-secondary" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h3 class="text-white mb-4">Get In Touch</h3>
+                <p class="mb-2"><i class="bi bi-globe text-primary me-2"></i> www.srijaconsultancy.in</p>
+                <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>#99,2nd floor,Pride icon,Rajendra Nagar,Gokul Road, Hubballi</p>
+                <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>hr@srijaconsultancy.in<br>partners@srijaconsultancy.in</p>
+                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>91+ 94494 49607</p> 
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h3 class="text-white mb-4">Follow Us</h3>
+                <div class="d-flex">
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-secondary text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <p class="m-0">&copy; Website Designed by TechWave Developers </p>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        const modalOverlay = document.getElementById('applyModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const applyForm = document.getElementById('applyForm');
+        const modalTitle = document.getElementById('modalTitle');
+
+        let currentJob = '';
+
+        applyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const jobCard = button.closest('.job-card');
+                currentJob = jobCard.getAttribute('data-job') || 'Job Application';
+                modalTitle.textContent = `Apply for: ${currentJob}`;
+                applyForm.reset();
+                clearErrors();
+                modalOverlay.classList.add('active');
+                applyForm.querySelector('#applicantName').focus();
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        function clearErrors() {
+            document.querySelectorAll('.error-message').forEach(el => (el.style.display = 'none'));
+        }
+
+        applyForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            clearErrors();
+
+            let valid = true;
+
+            const nameInput = applyForm.applicantName;
+            const emailInput = applyForm.applicantEmail;
+            const phoneInput = applyForm.applicantPhone;
+
+            if (!nameInput.value.trim()) {
+                document.getElementById('nameError').style.display = 'block';
+                valid = false;
+            }
+
+            if (!validateEmail(emailInput.value.trim())) {
+                document.getElementById('emailError').style.display = 'block';
+                valid = false;
+            }
+
+            if (!phoneInput.value.trim() || !phoneInput.checkValidity()) {
+                document.getElementById('phoneError').style.display = 'block';
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            alert(`Application submitted for:\n${currentJob}\nName: ${nameInput.value}\nEmail: ${emailInput.value}\nPhone: ${phoneInput.value}\nMessage: ${applyForm.applicantMessage.value}`);
+
+            modalOverlay.classList.remove('active');
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+
+</html>
