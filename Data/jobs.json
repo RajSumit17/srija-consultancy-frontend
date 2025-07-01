@@ -1,0 +1,314 @@
+{
+  "Admin Jobs": [
+    {
+      "title": "HR Executive",
+      "description": "Manage recruitment processes and employee onboarding.",
+      "company": "Turbo Tech Injector",
+      "salary": "₹30,000 - ₹40,000",
+      "experience": "1 Year",
+      "jobType": "Full Time",
+      "location": "Delhi, India",
+      "vacancy": "2",
+      "qualification": "MBA in HR or related field",
+      "responsibility": "Handle employee records, coordinate interviews"
+    },
+    {
+      "title": "Office Administrator",
+      "description": "Coordinate daily administrative operations and office management.",
+      "company": "CoreSys Pvt Ltd",
+      "salary": "₹25,000 - ₹35,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Noida, India",
+      "vacancy": "1",
+      "qualification": "Graduate in Business Administration",
+      "responsibility": "Manage schedules, office supplies, and staff communication"
+    }
+  ],
+  "Account & Finance": [
+    {
+      "title": "Accounts Executive",
+      "description": "Maintain financial records and prepare reports.",
+      "company": "FinSolve India",
+      "salary": "₹35,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Mumbai, India",
+      "vacancy": "3",
+      "qualification": "B.Com or M.Com",
+      "responsibility": "Handle accounts receivable and payable"
+    },
+    {
+      "title": "Financial Analyst",
+      "description": "Analyze financial data and assist in budgeting.",
+      "company": "CapitalTree",
+      "salary": "₹45,000 - ₹55,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Bangalore, India",
+      "vacancy": "1",
+      "qualification": "MBA in Finance",
+      "responsibility": "Create financial models, monitor KPIs"
+    }
+  ],
+  "3D Printing & Drones/Robotics": [
+    {
+      "title": "Robotics Engineer",
+      "description": "Design and test robotic systems.",
+      "company": "MechaBotics",
+      "salary": "₹60,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Pune, India",
+      "vacancy": "2",
+      "qualification": "B.Tech in Robotics/Mechatronics",
+      "responsibility": "Develop automation solutions"
+    },
+    {
+      "title": "3D Printing Technician",
+      "description": "Operate and maintain 3D printers.",
+      "company": "PrintMatrix",
+      "salary": "₹25,000",
+      "experience": "1 Year",
+      "jobType": "Full Time",
+      "location": "Hyderabad, India",
+      "vacancy": "1",
+      "qualification": "Diploma in Mechanical/Electronics",
+      "responsibility": "Prepare 3D models and troubleshoot printing issues"
+    }
+  ],
+  "Animation & VFX": [
+    {
+      "title": "3D Animator",
+      "description": "Create high-quality 3D animations for films and games.",
+      "company": "VisionCraze",
+      "salary": "₹50,000",
+      "experience": "2 Years",
+      "jobType": "Contract",
+      "location": "Chennai, India",
+      "vacancy": "2",
+      "qualification": "BFA or equivalent",
+      "responsibility": "Work with teams to animate characters and scenes"
+    },
+    {
+      "title": "VFX Compositor",
+      "description": "Design and integrate visual effects in post-production.",
+      "company": "FrameForge Studios",
+      "salary": "₹45,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Mumbai, India",
+      "vacancy": "1",
+      "qualification": "Diploma in VFX",
+      "responsibility": "Combine live-action and CG elements"
+    }
+  ],
+  "AR/VR & Blockchain": [
+    {
+      "title": "Blockchain Developer",
+      "description": "Build secure blockchain solutions using Ethereum.",
+      "company": "BlockNova",
+      "salary": "₹70,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Remote",
+      "vacancy": "2",
+      "qualification": "B.Tech in Computer Science",
+      "responsibility": "Smart contract development, testing, and deployment"
+    },
+    {
+      "title": "AR Developer",
+      "description": "Design interactive AR experiences using Unity and ARKit.",
+      "company": "HoloNext",
+      "salary": "₹60,000",
+      "experience": "1 Year",
+      "jobType": "Full Time",
+      "location": "Bangalore, India",
+      "vacancy": "1",
+      "qualification": "B.Tech or BCA",
+      "responsibility": "Develop AR applications for retail and education"
+    }
+  ],
+  "Architecture": [
+    {
+      "title": "Junior Architect",
+      "description": "Assist in architectural design and drawing preparation.",
+      "company": "BuildForm Architects",
+      "salary": "₹30,000",
+      "experience": "1 Year",
+      "jobType": "Full Time",
+      "location": "Kolkata, India",
+      "vacancy": "2",
+      "qualification": "B.Arch",
+      "responsibility": "Support senior architects in project work"
+    },
+    {
+      "title": "Urban Planner",
+      "description": "Plan layouts for residential and commercial development.",
+      "company": "CityGrid Infra",
+      "salary": "₹40,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Ahmedabad, India",
+      "vacancy": "1",
+      "qualification": "M.Plan or B.Arch",
+      "responsibility": "Develop zoning proposals and feasibility studies"
+    }
+  ],
+  "Architecture & Interior Design": [
+    {
+      "title": "Interior Designer",
+      "description": "Design and manage interior spaces for homes and offices.",
+      "company": "DecoHaus",
+      "salary": "₹35,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Delhi, India",
+      "vacancy": "1",
+      "qualification": "Diploma in Interior Design",
+      "responsibility": "Meet clients, draft layout plans, manage vendors"
+    },
+    {
+      "title": "Design Consultant",
+      "description": "Consult clients on space and aesthetic planning.",
+      "company": "Interiorly",
+      "salary": "₹40,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Bangalore, India",
+      "vacancy": "1",
+      "qualification": "B.Arch or B.Des",
+      "responsibility": "Provide customized interior design advice"
+    }
+  ],
+  "Agriculture & Forestry": [
+    {
+      "title": "Farm Manager",
+      "description": "Manage daily operations on a commercial farm.",
+      "company": "AgroWorks India",
+      "salary": "₹28,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Nagpur, India",
+      "vacancy": "1",
+      "qualification": "B.Sc in Agriculture",
+      "responsibility": "Oversee planting, irrigation and harvesting"
+    },
+    {
+      "title": "Forestry Technician",
+      "description": "Support conservation efforts and forest health monitoring.",
+      "company": "EcoHarvest",
+      "salary": "₹30,000",
+      "experience": "1 Year",
+      "jobType": "Contract",
+      "location": "Shillong, India",
+      "vacancy": "1",
+      "qualification": "Diploma in Forestry",
+      "responsibility": "Assist in forest surveys and wildlife tracking"
+    }
+  ],
+  "Automobile Sector": [
+    {
+      "title": "Automobile Engineer",
+      "description": "Design, develop and test vehicle systems.",
+      "company": "MotoCraft",
+      "salary": "₹55,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Chennai, India",
+      "vacancy": "2",
+      "qualification": "B.Tech in Automobile Engineering",
+      "responsibility": "Prototype vehicle systems, perform diagnostics"
+    },
+    {
+      "title": "Service Advisor",
+      "description": "Liaison between customers and service teams in garages.",
+      "company": "AutoFix",
+      "salary": "₹25,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Delhi, India",
+      "vacancy": "1",
+      "qualification": "Diploma in Auto Services",
+      "responsibility": "Assess issues, schedule repairs, provide estimates"
+    }
+  ],
+  "Banking & Financial Services": [
+    {
+      "title": "Loan Officer",
+      "description": "Evaluate and approve loan applications.",
+      "company": "UrbanBank",
+      "salary": "₹40,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Hyderabad, India",
+      "vacancy": "2",
+      "qualification": "MBA in Finance",
+      "responsibility": "Review creditworthiness, prepare documentation"
+    },
+    {
+      "title": "Banking Associate",
+      "description": "Assist customers with daily banking needs.",
+      "company": "SecureBank Ltd",
+      "salary": "₹32,000",
+      "experience": "1 Year",
+      "jobType": "Full Time",
+      "location": "Lucknow, India",
+      "vacancy": "3",
+      "qualification": "B.Com or equivalent",
+      "responsibility": "Process deposits, answer queries"
+    }
+  ],
+  "Beauty & Personal Care": [
+    {
+      "title": "Salon Manager",
+      "description": "Manage daily operations and team at a beauty salon.",
+      "company": "Glow & Go",
+      "salary": "₹30,000",
+      "experience": "3 Years",
+      "jobType": "Full Time",
+      "location": "Delhi, India",
+      "vacancy": "1",
+      "qualification": "Diploma in Cosmetology",
+      "responsibility": "Supervise staff, maintain client relations"
+    },
+    {
+      "title": "Makeup Artist",
+      "description": "Provide professional makeup services for events and shoots.",
+      "company": "FaceStory Studios",
+      "salary": "₹25,000",
+      "experience": "1 Year",
+      "jobType": "Contract",
+      "location": "Mumbai, India",
+      "vacancy": "2",
+      "qualification": "Certificate in Makeup Artistry",
+      "responsibility": "Coordinate with clients, apply makeup styles"
+    }
+  ],
+  "Biotechnology": [
+    {
+      "title": "Research Associate",
+      "description": "Assist in biotech R&D projects.",
+      "company": "BioNext Labs",
+      "salary": "₹50,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Hyderabad, India",
+      "vacancy": "1",
+      "qualification": "M.Sc in Biotechnology",
+      "responsibility": "Run experiments, maintain lab records"
+    },
+    {
+      "title": "Clinical Data Analyst",
+      "description": "Analyze and interpret biotech clinical trial data.",
+      "company": "GeneScope Analytics",
+      "salary": "₹55,000",
+      "experience": "2 Years",
+      "jobType": "Full Time",
+      "location": "Pune, India",
+      "vacancy": "1",
+      "qualification": "M.Sc in Bioinformatics",
+      "responsibility": "Work on datasets, create reports"
+    }
+  ]
+}

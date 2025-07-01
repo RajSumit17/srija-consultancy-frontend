@@ -295,6 +295,16 @@
         font-size: 1.1rem;
         font-weight: 600;
       }
+       .job-card {
+      background: #fff;
+      transition: box-shadow 0.3s ease;
+    }
+    .job-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    .job-card h5 {
+      font-weight: 600;
+    }
     </style>
   </head>
 
@@ -327,48 +337,14 @@
         });
       });
     </script>
-    <div class="container mt-4">
-       
-      <h2 class="text-center fw-bold">List of Job Categories</h2>
-       
-      <p class="text-center text-muted">
-            Discover occupations that match your skills and ambitions  
-      </p>
 
-       
-      <div class="mb-4 d-flex justify-content-center">
-           
-        <input
-          type="text"
-          class="form-control w-50"
-          id="categorySearchInput"
-          placeholder="Search categories..."
-        />
-         
-      </div>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Category Jobs</h1>
 
-       
-      <div class="row" id="categoryContainer"></div>
+    <div class="job-list"></div>
+  </div>
 
-       
-      <!-- 🔽 Loader moved here -->
-       
-      <div
-        id="loader"
-        style="display: none; text-align: center; margin-top: 40px"
-      >
-           
-        <div
-          class="spinner-border text-primary"
-          role="status"
-          style="width: 3rem; height: 3rem"
-        >
-                <span class="visually-hidden">Loading...</span>    
-        </div>
-         
-      </div>
-    </div>
-
+   <div id="footer-placeholder"></div>
     <!-- Job Search Bar End -->
 
     <!-- Job Postings End -->
@@ -384,6 +360,6 @@
           document.getElementById("footer-placeholder").innerHTML = data;
         });
     </script>
-    <script type="module" src="./js/renderJobCategory.js"></script>
+   <script type="module" src="./js/category.js"></script>
   </body>
 </html>

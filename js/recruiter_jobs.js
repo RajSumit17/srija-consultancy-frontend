@@ -1,10 +1,10 @@
 // In your script file (e.g., dashboard.js or main.js)
-import { auth } from '../js/firebaseInit.js';
-import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
-import { signOut } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+import { auth } from "../js/firebaseInit.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 function handleLogout() {
-    console.log("handle Logout")
+  console.log("handle Logout");
   signOut(auth)
     .then(() => {
       // Clear session storage
@@ -12,12 +12,12 @@ function handleLogout() {
 
       // Prevent back navigation
       history.pushState(null, null, location.href);
-      window.addEventListener('popstate', () => {
+      window.addEventListener("popstate", () => {
         history.pushState(null, null, location.href);
       });
 
       // Redirect to login/home page
-       window.location.replace("../index.html");
+      window.location.replace("../index.html");
     })
     .catch((error) => {
       console.error("Error signing out:", error);
@@ -31,7 +31,7 @@ const fetchCurrentUser = () => {
       console.log("User is signed in:", user.email);
     } else {
       console.log("No user is signed in");
-       window.location.replace("../index.html");
+      window.location.replace("../index.html");
     }
   });
 };
@@ -42,7 +42,6 @@ const jobSearchForm = document.getElementById("jobSearchForm");
 
 const recruiterEmail = sessionStorage.getItem("email") || "default@example.com";
 console.log(recruiterEmail);
-
 
 // ✅ Fetch all jobs requested by this recruiter
 async function fetchRequestedJobs() {
@@ -55,6 +54,7 @@ async function fetchRequestedJobs() {
         body: JSON.stringify({ email: recruiterEmail }),
       }
     );
+    console.log("fetched the jobs requested");
     const fetchedJobs = await response.json();
     renderJobs(fetchedJobs.jobs);
   } catch (err) {
@@ -86,34 +86,49 @@ function renderJobs(jobs) {
     jobCard.dataset.location = job.location?.toLowerCase() || "";
 
     jobCard.innerHTML = `
-      <h5 class="mb-1 role">${job.jobTitle}</h5>
-      <p class="mb-1 job-description"><strong>Description:</strong> ${
-        job.description
-      }</p>
-      <p class="mb-1"><strong>Vacancy:</strong> ${job.vacancy}</p>
-      <p class="mb-1 info-item d-inline-block"><strong>Location:</strong> ${
-        job.location
-      }</p>
-      <p class="mb-1"><strong>Qualification:</strong> ${job.qualification}</p>
-      <p class="mb-1"><strong>Experience:</strong> ${job.experience}</p>
-      <p class="mb-1"><strong>Status:</strong> 
-        <span class="badge ${
-          job.status === "posted"
-            ? "bg-success"
-            : job.status === "pending"
-            ? "bg-warning text-dark"
-            : "bg-secondary"
-        }">${job.status}</span>
-      </p>
-      <div class="mt-2 d-flex gap-2">
-        <button class="btn btn-sm btn-outline-primary edit-btn" ${
-          job.status === "posted" ? "disabled" : ""
-        }>Edit</button>
-        <button class="btn btn-sm btn-outline-danger delete-btn" ${
-          job.status === "posted" ? "disabled" : ""
-        }>Delete</button>
-      </div>
-    `;
+  <div class="job-card-header d-flex justify-content-between align-items-start mb-2">
+    <h5 class="role mb-1">${job.jobTitle}</h5>
+    <span class="badge ${
+      job.status === "posted"
+        ? "bg-success"
+        : job.status === "pending"
+        ? "bg-warning text-dark"
+        : "bg-secondary"
+    } text-capitalize">${job.status}</span>
+  </div>
+
+  <p class="job-description mb-2"><strong>Description:</strong> ${
+    job.description
+  }</p>
+
+  <div class="job-meta d-flex flex-wrap gap-2 mb-2">
+    <span class="info-tag"><i class="bi bi-people-fill me-1"></i> Vacancy: ${
+      job.vacancy
+    }</span>
+    <span class="info-tag"><i class="bi bi-geo-alt-fill me-1"></i> ${
+      job.location
+    }</span>
+    <span class="info-tag"><i class="bi bi-mortarboard-fill me-1"></i> ${
+      job.qualification
+    }</span>
+    <span class="info-tag"><i class="bi bi-briefcase-fill me-1"></i> ${
+      job.experience
+    } experience</span>
+  </div>
+
+  <div class="d-flex gap-2 mt-3">
+    <button class="btn btn-sm btn-outline-primary edit-btn" ${
+      job.status === "posted" ? "disabled" : ""
+    }>
+      <i class="bi bi-pencil-square me-1"></i> Edit
+    </button>
+    <button class="btn btn-sm btn-outline-danger delete-btn" ${
+      job.status === "posted" ? "disabled" : ""
+    }>
+      <i class="bi bi-trash me-1"></i> Delete
+    </button>
+  </div>
+`;
 
     jobCard.querySelector(".edit-btn").addEventListener("click", function () {
       openEditModal(job);
@@ -163,13 +178,14 @@ document.getElementById("editJobForm").addEventListener("submit", async (e) => {
 
   const jobId = document.getElementById("editRequestId").value;
   const updatedData = {
-    title: document.getElementById("editTitle").value.trim(),
-    description: document.getElementById("editDescription").value.trim(),
-    vacancy: parseInt(document.getElementById("editVacancy").value),
-    qualification: document.getElementById("editQualification").value.trim(),
-    experience: document.getElementById("editExperience").value.trim(),
-    location: document.getElementById("editLocation").value.trim(),
-  };
+  jobTitle: document.getElementById("editTitle").value.trim(),
+  description: document.getElementById("editDescription").value.trim(),
+  vacancy: parseInt(document.getElementById("editVacancy").value),
+  qualification: document.getElementById("editQualification").value.trim(),
+  experience: document.getElementById("editExperience").value.trim(),
+  location: document.getElementById("editLocation").value.trim(),
+};
+  console.log(updatedData.jobTitle)
 
   await updateJob(jobId, updatedData);
 

@@ -7,37 +7,46 @@ import { signupCandidate, signupRecruiter } from "./signUp.js"; // Assuming you 
 // Ensure the DOM is fully loaded before trying to access elements
 document.addEventListener("DOMContentLoaded", () => {
   // --- Login Form Event Listener ---
-  const adminLoginBtn = document.getElementById("login_btn");
-  if (adminLoginBtn) {
-    adminLoginBtn.addEventListener("click", async (e) => {
+  document.querySelectorAll(".login_btn").forEach((loginBtn) => {
+    loginBtn.addEventListener("click", async (e) => {
       e.preventDefault();
 
-      const userEmail = document.getElementById("email").value;
+      const parentForm = loginBtn.closest("form");
+
+      const emailInput = parentForm.querySelector("input[type='email']");
+      const passwordInput = parentForm.querySelector("input[type='password']");
+
+      const userEmail = emailInput?.value.trim();
+      const userPassword = passwordInput?.value.trim();
       const userType = document.getElementById("userType").value;
 
-      if (userEmail == "sumitraj1533@gmail.com") {
-        const success = await loginUser("admin");
-        if (success) {
-          window.location.replace("../admin_layouts/admin_jobs.html");
-        }
-      } else if (userType == "candidate") {
-        const success = await loginUser("candidate");
-        if (success) {
+      // 🛑 DEBUG: Log inputs to check values
+      console.log("userEmail:", userEmail);
+      console.log("userPassword:", userPassword);
+      console.log("userType:", userType);
+
+      if (!userEmail || !userPassword) {
+        alert("Please enter all details");
+        return;
+      }
+
+      if (userEmail === "sumitraj1533@gmail.com") {
+        const success = await loginUser("admin",userEmail,userPassword);
+        if (success)
+          window.location.replace("../admin_layouts/admin_jobs_new.html");
+      } else if (userType === "candidate") {
+        const success = await loginUser("candidate",userEmail,userPassword);
+        if (success)
           window.location.replace("../candidate_layouts/candidate_jobs.html");
-        }
       } else {
-        const success = await loginUser("recruiter");
-        if (success) {
+        const success = await loginUser("recruiter",userEmail,userPassword);
+        if (success)
           window.location.replace("../recruiter_layouts/recruiter_jobs.html");
-        }
       }
     });
-    console.log("Login button listener attached.");
-  } else {
-    console.warn(
-      "Login button (ID 'loginBtn') not found. Is your HTML correct?"
-    );
-  }
+  });
+
+  console.log("Login button listeners attached.");
 
   const candidateLoginBtn = document.getElementById("candidateLogin");
   if (candidateLoginBtn) {
@@ -61,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const success = await loginUser("recruiter");
       if (success) {
-        window.location.replace("../recruiter_layouts/recruiter_jobs.html")
+        window.location.replace("../recruiter_layouts/recruiter_jobs.html");
       }
     });
     console.log("Login button listener attached.");
@@ -77,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
     candidateSignupBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const success = await signupCandidate();
-      if (success) 
-      window.location.replace("../candidate_layouts/candidate_jobs.html")
+      if (success)
+        window.location.replace("../candidate_layouts/candidate_jobs.html");
     });
     console.log("Signup button listener attached.");
   } else {
@@ -90,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const success = await signupRecruiter();
       if (success)
-      window.location.replace("../recruiter_layouts/recruiter_jobs.html")
+        window.location.replace("../recruiter_layouts/recruiter_jobs.html");
     });
     console.log("Signup button listener attached.");
   } else {
