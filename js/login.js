@@ -53,7 +53,7 @@ export async function loginUser(userType,email,password) {
     try {
       const localURL = "http://localhost:8080";
       const renderURL = "https://srija-consultancy-backend.onrender.com";
-      const res = await fetch(`${localURL}/api/login/${path}`, {
+      const res = await fetch(`${renderURL}/api/login/${path}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

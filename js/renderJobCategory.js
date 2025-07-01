@@ -12,7 +12,7 @@ const fetchCategories = async () => {
     loader.style.display = "block"; // Show loader
     categoryContainer.innerHTML = ""; // Clear previous content
 
-    const res = await fetch("http://localhost:8080/api/jobs/getCategory", {
+    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getCategory", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
