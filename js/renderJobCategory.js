@@ -26,7 +26,7 @@ const fetchCategories = async () => {
     categoryContainer.innerHTML = ""; // Clear previous content
     // http://localhost:8080
     // https://srija-consultancy-backend.onrender.com
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getCategory", {
+    const res = await fetch("http://localhost:8080/api/jobs/getCategory", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -49,38 +49,36 @@ const fetchCategories = async () => {
 const renderCategories = (categories) => {
   categoryContainer.innerHTML = "";
 
-  // Add a container row with centered content
   const row = document.createElement("div");
-  row.className = "row justify-content-center gap-3"; // Bootstrap centering and spacing
-  row.style.flexWrap = "wrap";
+  row.className = "d-flex flex-wrap justify-content-center gap-3";
 
   categories.forEach((category) => {
     const iconClass = categoryIcons[category.name] || "bi-briefcase-fill";
-    console.log(categoryIcons[category.name], category.name);
 
     const cardCol = document.createElement("div");
-    cardCol.className = "col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center"; // Responsive
-    cardCol.style.maxWidth = "21%"; // match your style
-    cardCol.style.flex = "1 1 21%";
-    cardCol.style.marginBottom = "20px";
+    cardCol.className = "col-md-3 mb-4";
+    // cardCol.setAttribute("data-category", category.name);
+
+    // Allow card to shrink/grow naturally
+    // cardCol.style.flex = "0 1 auto";
+    // cardCol.style.marginBottom = "15px";
 
     cardCol.innerHTML = `
-      <a href="jobs.html" style="text-decoration: none; width: 100%;">
-        <div class="card text-center category-card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;" data-category="${category.name}">
-          <div class="card-body">
-            <i class="bi ${iconClass}" style="font-size: 2rem; margin-bottom: 10px;"></i>
-            <h6 class="card-title">${category.name}</h6>
-            <p class="text-muted">Job Available: <strong>${category.count}</strong></p>
-          </div>
-        </div>
-      </a>
+      
+      <div class="category-card h-100" data-category="${category.name}">
+        <i class="bi ${iconClass}" style="font-size: 2rem; margin-bottom: 10px;"></i>
+        <h5>${category.name}</h5>
+        <p class="text-muted">Job Available: <strong>${category.count}</strong></p>
+      </div>
     `;
 
     row.appendChild(cardCol);
   });
 
-  categoryContainer.appendChild(row); // Inject the complete row
+  categoryContainer.appendChild(row);
 };
+
+
 
 // Search filter
 categorySearchInput.addEventListener("input", () => {
@@ -95,11 +93,12 @@ categorySearchInput.addEventListener("input", () => {
 categoryContainer.addEventListener("click", (e) => {
   const card = e.target.closest(".category-card");
   if (!card) return;
+  
   const category = card.dataset.category;
   sessionStorage.setItem("selectedCategory", category);
-  const path = "./category.html";
-  window.location.href = `${path}?category=${encodeURIComponent(category)}`;
+  window.location.href = `./category.html?category=${encodeURIComponent(category)}`;
 });
+
 
 // ✅ Call to fetch categories
 fetchCategories();
