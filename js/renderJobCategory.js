@@ -11,7 +11,8 @@ const fetchCategories = async () => {
   try {
     loader.style.display = "block"; // Show loader
     categoryContainer.innerHTML = ""; // Clear previous content
-
+    // http://localhost:8080
+    // https://srija-consultancy-backend.onrender.com
     const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getCategory", {
       method: "GET",
       headers: {
@@ -33,21 +34,33 @@ const fetchCategories = async () => {
   }
 };
 
+import categoryIcons from './categoryIcons.json' assert { type: 'json' };
+
 const renderCategories = (categories) => {
   categoryContainer.innerHTML = "";
   categories.forEach((category) => {
+    const iconClass = categoryIcons[category.name] || "bi-briefcase-fill"; // fallback icon
+
     const card = document.createElement("div");
-    card.className = "col-md-3 mb-4";
+    card.className = "col";
+    card.style.flex = "1 1 21%";
+    card.style.maxWidth = "21%";
+
     card.innerHTML = `
-      <div class="category-card h-100" data-category="${category.name}">
-        <img src="../Data/image.png" alt="${category.name}" />
-        <h5>${category.name}</h5>
-        <p class="text-muted">Job Available: <strong>${category.count}</strong></p>
-      </div>
+      <a href="jobs.html" style="text-decoration: none;">
+        <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;" data-category="${category.name}">
+          <div class="card-body">
+            <i class="bi ${iconClass}" style="font-size: 2rem; margin-bottom: 10px;"></i>
+            <h6 class="card-title">${category.name}</h6>
+            <p class="text-muted">Job Available: <strong>${category.count}</strong></p>
+          </div>
+        </div>
+      </a>
     `;
     categoryContainer.appendChild(card);
   });
 };
+
 
 // Search filter
 categorySearchInput.addEventListener("input", () => {

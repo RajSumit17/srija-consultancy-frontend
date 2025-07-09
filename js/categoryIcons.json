@@ -1,0 +1,18 @@
+{
+  "HR": "bi-people-fill",
+  "Accounting": "bi-calculator-fill",
+  "Finance": "bi-bar-chart-line-fill",
+  "Design": "bi-palette-fill",
+  "Development": "bi-code-slash",
+  "Animation": "bi-camera-video-fill",
+  "Marketing": "bi-megaphone-fill",
+  "Engineering": "bi-gear-fill",
+  "IT Support": "bi-laptop",
+  "Cyber Security": "bi-shield-lock-fill",
+  "Testing": "bi-bug-fill",
+  "Content": "bi-pencil-fill",
+  "Power Systems": "bi-lightning-fill",
+  "Mechanical": "bi-wrench-adjustable-circle-fill",
+  "SEO": "bi-globe2",
+  "Media": "bi-camera-fill"
+}
