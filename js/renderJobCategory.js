@@ -2,21 +2,27 @@ const categoryContainer = document.getElementById("categoryContainer");
 const categorySearchInput = document.getElementById("categorySearchInput");
 const loader = document.getElementById("loader");
 
-let categoryData = [];      // Stores all categories fetched from backend
-let categoryIcons = {};     // Stores icon mapping from JSON
+let categoryData = []; // Stores all categories fetched from backend
 
-// Load icon mapping first
-fetch('js/categoryIcons.json')
-  .then(res => res.json())
-  .then((iconsMap) => {
-    categoryIcons = iconsMap;
-    fetchCategories(); // Fetch categories only after icon mapping is ready
-  })
-  .catch(err => {
-    console.error("Error loading icon JSON:", err);
-    loader.style.display = "none";
-    categoryContainer.innerHTML = `<p class="text-danger text-center">Failed to load icons.</p>`;
-  });
+// ✅ Embedded icon mapping
+const categoryIcons = {
+  "HR": "bi-people-fill",
+  "Accounting": "bi-calculator-fill",
+  "Finance": "bi-bar-chart-line-fill",
+  "Design": "bi-palette-fill",
+  "Development": "bi-code-slash",
+  "Animation": "bi-camera-video-fill",
+  "Marketing": "bi-megaphone-fill",
+  "Engineering": "bi-gear-fill",
+  "IT Support": "bi-laptop",
+  "Cyber Security": "bi-shield-lock-fill",
+  "Testing": "bi-bug-fill",
+  "Content": "bi-pencil-fill",
+  "Power Systems": "bi-lightning-fill",
+  "Mechanical": "bi-wrench-adjustable-circle-fill",
+  "SEO": "bi-globe2",
+  "Media": "bi-camera-fill"
+};
 
 const fetchCategories = async () => {
   try {
@@ -87,3 +93,6 @@ categoryContainer.addEventListener("click", (e) => {
   const path = "./category.html";
   window.location.href = `${path}?category=${encodeURIComponent(category)}`;
 });
+
+// ✅ Call to fetch categories
+fetchCategories();
