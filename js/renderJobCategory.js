@@ -6,7 +6,7 @@ let categoryData = [];      // Stores all categories fetched from backend
 let categoryIcons = {};     // Stores icon mapping from JSON
 
 // Load icon mapping first
-fetch('./categoryIcons.json')
+fetch('js/categoryIcons.json')
   .then(res => res.json())
   .then((iconsMap) => {
     categoryIcons = iconsMap;
