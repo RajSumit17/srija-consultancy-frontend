@@ -53,54 +53,57 @@
     <!-- Navbar End -->
 
 
-  <!-- Carousel Section with Background Image -->
+ <!-- Carousel Section with Background Image -->
 <div style="background: url('img/imgjob.jpg') no-repeat center center / cover; padding: 60px 0;">
   <div id="jobsCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
       <!-- Slide 1 -->
       <div class="carousel-item active">
-        <div class="container py-4">
+        <div class="container" style="padding: 20px 0;">
 
           <!-- Row 1 -->
-          <div class="row" style="gap: 15px; justify-content: center;">
-            <!-- 4 categories -->
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+          <div class="row" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+            <!-- Card -->
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-people-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">HR</h6>
+                    <i class="bi bi-people-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">HR</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-calculator-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Accounting</h6>
+                    <i class="bi bi-calculator-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Accounting</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-bar-chart-line-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Finance</h6>
+                    <i class="bi bi-bar-chart-line-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Finance</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-palette-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Design</h6>
+                    <i class="bi bi-palette-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Design</h6>
                   </div>
                 </div>
               </a>
@@ -108,43 +111,48 @@
           </div>
 
           <!-- Row 2 -->
-          <div class="row mt-3" style="gap: 15px; justify-content: center;">
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+          <div class="row" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <!-- Repeat similar cards for each job category -->
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-code-slash" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Development</h6>
+                    <i class="bi bi-code-slash" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Development</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-camera-video-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Animation</h6>
+                    <i class="bi bi-camera-video-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Animation</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-megaphone-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Marketing</h6>
+                    <i class="bi bi-megaphone-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Marketing</h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
+
+            <div class="col" style="flex: 1 1 21%; max-width: 21%; min-width: 180px; text-align: center;">
               <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
+                <div class="card" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
                   <div class="card-body">
-                    <i class="bi bi-gear-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Engineering</h6>
+                    <i class="bi bi-gear-fill" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h6 class="card-title" style="font-size: 1rem; margin: 0; white-space: nowrap;">Engineering</h6>
                   </div>
                 </div>
               </a>
@@ -154,100 +162,7 @@
         </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="container py-4">
-
-          <!-- Row 1 -->
-          <div class="row" style="gap: 15px; justify-content: center;">
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-laptop" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">IT Support</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-shield-lock-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Cyber Security</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-bug-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Testing</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-pencil-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Content</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="row mt-3" style="gap: 15px; justify-content: center;">
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-lightning-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Power Systems</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-wrench-adjustable-circle-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Mechanical</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-globe2" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">SEO</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col" style="flex: 1 1 21%; max-width: 21%;">
-              <a href="jobs.html" style="text-decoration: none;">
-                <div class="card text-center" style="background-color: #ffffff; color: #258f76; padding: 20px; border-radius: 15px; box-shadow: none;">
-                  <div class="card-body">
-                    <i class="bi bi-camera-fill" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <h6 class="card-title">Media</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <!-- Repeat the same inline structure for Slide 2 if needed -->
 
     </div>
 
@@ -262,333 +177,6 @@
     </button>
   </div>
 </div>
-
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Bootstrap Icons (must include for icons to work) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Required Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
-  <!-- About Start -->
-<div class="container-fluid bg-secondary p-0">
-  <div class="row g-0">
-    <!-- Left Column -->
-    <div class="col-lg-6 py-3 px-4">
-      <h1 class="display-5 mb-4">Welcome To <span class="text-primary">SRIJA CONSULTANCY</span></h1>
-      <h4 class="text-primary mb-4">Empowering your workforce. Building your future.</h4>
-      <p class="mb-4" style="color: #000; font-weight: bold;">
-        We specialize in delivering reliable HR solutions, connecting the right talent with the
-        right opportunities, and enabling organizations to thrive. Our team of expert consultants
-        understands your unique business challenges and offers tailored HR strategies that drive success.
-        We’re dedicated to helping businesses grow by placing top talent in roles that match their skills
-        and ambitions. Let us take your workforce to the next level with our trusted HR services.
-      </p>
-      <a class="btn btn-primary py-md-3 px-md-5 rounded-pill" data-bs-toggle="modal" data-bs-target="#founderModal">View More</a>
-
-      <!-- Founder Modal -->
-      <div class="modal fade" id="founderModal" tabindex="-1" aria-labelledby="founderModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content border-0 bg-transparent">
-            <div class="modal-body p-0">
-              <div class="card bg-white text-primary border-0 rounded-4 w-100">
-                <div class="card-body p-0">
-                  <div class="p-4">
-                    <h3 class="card-title mb-3 text-center" style="color: #164259; font-weight: bold;">Meet Our Founder</h3>
-                    <div class="d-flex justify-content-center mb-3">
-                      <img src="img/founder.jpg" alt="Mr. Shambhu Alagundagi" class="rounded-circle border border-3 border-primary" style="width: 160px; height: 160px; object-fit: cover;">
-                    </div>
-                    <h4 class="mb-1 text-center" style="color: #164259; font-weight: bold;">Mr. Shambhu Alagundagi</h4>
-                    <h6 class="mb-3 text-center" style="color: #164259; font-weight: bold;">Founder &amp; CEO</h6>
-                    <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
-                      A dynamic leader and visionary, Mr. Shambhu Alagundagi is the face behind Srija Consultancy. With a deep understanding of business dynamics and people management, he has laid the foundation for a firm that stands for ethical hiring, growth, and client satisfaction.
-                    </p>
-                    <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
-                      Passionate about bridging the employment gap in India, he believes in action, accountability, and empowering people to reach their potential. His leadership steers Srija with purpose and commitment.
-                    </p>
-                    <div class="d-flex flex-column align-items-center gap-2" style="font-weight: bold; color: #164259;">
-                      <div><i class="bi bi-geo-alt me-2"></i> Hubballi, Karnataka</div>
-                      <div><i class="bi bi-telephone me-2"></i> +91 94494 49607</div>
-                      <div><i class="bi bi-envelope me-2"></i> hr@srijaconsultancy.in</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <style>
-        #founderModal .card {
-          transition: box-shadow 0.3s;
-          box-shadow: none;
-          background: #fff !important;
-        }
-        #founderModal .card:hover {
-          box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
-        }
-        #founderModal .modal-content {
-          background: transparent;
-        }
-        #founderModal .card * {
-          color: #258f76 !important;
-        }
-        #founderModal .card .text-secondary {
-          color: #6c757d !important;
-        }
-        #founderModal .card .text-primary {
-          color: #258f76 !important;
-        }
-        #founderModal .card-body {
-          padding: 0;
-        }
-      </style>
-    </div>
-
-    <!-- Right Column -->
-    <div class="col-lg-6">
-      <div class="h-100 bg-primary rounded shadow-sm text-white d-flex flex-column justify-content-center" style="margin: 0; padding: 1rem 1.5rem;">
-        <h2 class="mb-4 fw-bold text-white">Why Choose Srija Consultancy</h2>
-        <div class="timeline position-relative ps-4">
-          <div class="timeline-step mb-4 d-flex align-items-center">
-            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:44px; height:44px;">
-              <i class="fas fa-user-cog"></i>
-            </div>
-            <div><span class="fw-semibold">Personalized and transparent HR solutions</span></div>
-          </div>
-          <div class="timeline-step mb-4 d-flex align-items-center">
-            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:44px; height:44px;">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <div><span class="fw-semibold">Fast response and hiring turnaround time</span></div>
-          </div>
-          <div class="timeline-step mb-4 d-flex align-items-center">
-            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:44px; height:44px;">
-              <i class="fas fa-users"></i>
-            </div>
-            <div><span class="fw-semibold">Industry-aware team of consultants</span></div>
-          </div>
-          <div class="timeline-step mb-4 d-flex align-items-center">
-            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:44px; height:44px;">
-              <i class="fas fa-balance-scale"></i>
-            </div>
-            <div><span class="fw-semibold">Deep focus on ethical hiring practices</span></div>
-          </div>
-          <div class="timeline-step d-flex align-items-center">
-            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:44px; height:44px;">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <div><span class="fw-semibold">End-to-end recruitment and onboarding support</span></div>
-          </div>
-          <style>
-            .timeline::before {
-              content: '';
-              position: absolute;
-              left: 21px;
-              top: 0;
-              bottom: 0;
-              width: 2px;
-              background: rgba(255, 255, 255, 0.3);
-            }
-            @media (max-width: 991.98px) {
-              .timeline::before {
-                left: 21px;
-              }
-            }
-          </style>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- About End -->
-
-    <!-- Services Start -->
-    <div class="container-fluid pt-6 px-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-0">Why Choose Srija Consultancy ?</h1>
-            <hr class="w-25 mx-auto bg-primary">
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-user-tie fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">Career Research & Guidance</h3>
-                    <p class="mb-0">We help job seekers and students explore various career paths and understand market
-                        trends to make informed decisions about their future.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-chart-pie fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">Strategic Planning for Job Seekers</h3>
-                    <p class="mb-0">We provide tailored career plans and job search strategies to help you navigate the
-                        job market confidently and land the right opportunities.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-chart-line fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">Career Market Analysis</h3>
-                    <p class="mb-0">We offer insights into the job market, including in-demand skills, salary trends,
-                        and industry growth, to help you stay ahead.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-chart-area fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">Financial Analaysis</h3>
-                    <p class="mb-0">We assess job market compensation trends to help candidates negotiate fair salaries
-                        and benefits.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-balance-scale fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">legal Advisory</h3>
-                    <p class="mb-0">We provide guidance on workplace rights and employment laws to support candidates’
-                        professional journeys.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item bg-secondary text-center px-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
-                        style="width: 90px; height: 90px;">
-                        <i class="fa fa-house-damage fa-2x"></i>
-                    </div>
-                    <h3 class="mb-3">Job Placement Assistance</h3>
-                    <p class="mb-0">We connect job seekers and students with the right opportunities, ensuring they find
-                        the best roles to match their skills.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-        <!-- Testimonials Start -->
-    <div class="container-fluid py-6 px-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-0">Testimonials</h1>
-            <hr class="w-25 mx-auto bg-primary">
-        </div>
-        <!-- Carousel for testimonials -->
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Testimonial 1 -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="img/team-1.jpg" alt="Client 1" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy helped us find the right
-                                    talent quickly and efficiently. Highly recommended!"</p>
-                                <h5 class="mb-0 fw-bold">Anil Kumar</h5>
-                                <span class="text-muted">HR Manager, TechNova Pvt Ltd</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="img/team-2.jpg" alt="Client 2" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Professional, responsive, and reliable HR
-                                    solutions. Our go-to partner for recruitment."</p>
-                                <h5 class="mb-0 fw-bold">Priya Desai</h5>
-                                <span class="text-muted">Director, Desai Industries</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="img/team-3.jpg" alt="Client 3" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Their team understood our needs and delivered
-                                    beyond expectations. Thank you!"</p>
-                                <h5 class="mb-0 fw-bold">Ravi Shetty</h5>
-                                <span class="text-muted">Founder, Shetty Logistics</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 4 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="img/team-1.jpg" alt="Client 4" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Excellent support throughout the hiring
-                                    process. Will work with them again."</p>
-                                <h5 class="mb-0 fw-bold">Sneha Patil</h5>
-                                <span class="text-muted">HR Lead, Patil Enterprises</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 5 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="img/team-2.jpg" alt="Client 5" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy’s expertise made a real
-                                    difference to our business."</p>
-                                <h5 class="mb-0 fw-bold">Vikram Joshi</h5>
-                                <span class="text-muted">CEO, Joshi AgroTech</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Carousel controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-    <!-- Testimonials End -->
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary p-5">
         <div class="row g-5">
