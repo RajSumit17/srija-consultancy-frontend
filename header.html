@@ -1,28 +1,60 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-    <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
-        <img src="img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2">
-        <div style="display: flex; flex-direction: column; justify-content: center; height: 100px; padding-top: 10px;">
-            <h1 class="m-0 text-uppercase" style="color: #164259 !important; line-height: 1;">SRIJA CONSULTANCY</h1>
-            <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center; line-height: 1.2;">
-            "We will empower your workforce, <br>so you can empower your business"
-            </div>
-        </div>
-        </div>
-    </a>
+  <a href="index.html" class="navbar-brand p-0 d-flex align-items-center" style="flex-wrap: wrap;">
+    <!-- Logo -->
+    <img src="img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2" id="logo-img">
 
-
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0 me-n3">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="jobs.html" class="nav-item nav-link">Jobs</a>
-            <a href="../registration_layouts/Login.html" class="nav-item nav-link">Login</a>
-            <a href="blog.html" class="nav-item nav-link">Blog</a>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
-        </div>
+    <!-- Company Name & Tagline -->
+    <div style="display: flex; flex-direction: column; justify-content: center; height: 100px; padding-top: 10px;" id="brand-text">
+      <h1 class="m-0 text-uppercase" style="color: #164259 !important; line-height: 1;" id="brand-name">
+        SRIJA CONSULTANCY
+      </h1>
+      <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center; line-height: 1.2;" id="brand-tagline">
+        "We will empower your workforce, <br>so you can empower your business"
+      </div>
     </div>
+  </a>
+
+  <!-- Hamburger Menu Button -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navigation Links -->
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-0 me-n3">
+      <a href="index.html" class="nav-item nav-link active" style="color: red;">Home</a>
+      <a href="about.html" class="nav-item nav-link" style="color: #0c2233;">About</a>
+      <a href="jobs.html" class="nav-item nav-link" style="color: #0c2233;">Jobs</a>
+      <a href="../registration_layouts/Login.html" class="nav-item nav-link" style="color: #0c2233;">Login</a>
+      <a href="blog.html" class="nav-item nav-link" style="color: #0c2233;">Blog</a>
+      <a href="contact.html" class="nav-item nav-link" style="color: #0c2233;">Contact</a>
+    </div>
+  </div>
 </nav>
+
+<!-- Responsive Fixes for Mobile View -->
+<style>
+  @media (max-width: 576px) {
+    #logo-img {
+      height: 60px !important;
+    }
+
+    #brand-text {
+      height: auto !important;
+      padding-top: 0 !important;
+      padding-left: 5px;
+      text-align: left;
+    }
+
+    #brand-name {
+      font-size: 16px !important;
+      line-height: 1.2 !important;
+    }
+
+    #brand-tagline {
+      font-size: 11px !important;
+      text-align: left !important;
+      line-height: 1.2 !important;
+    }
+  }
+</style>
