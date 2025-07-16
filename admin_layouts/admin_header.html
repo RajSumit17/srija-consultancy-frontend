@@ -1,22 +1,25 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
   <div class="container-fluid">
-    <!-- Logo and title -->
-     <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
-        <img src="../img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2">
-        <a>
-            <h1 class="m-0 text-uppercase" style="color: #164259 !important;">SRIJA CONSULTANCY</h1>
-            <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center;">
-                "We will empower your workforce, <br>so you can empower your business"
-            </p>
+    <!-- Logo and Title -->
+    <a href="index.html" class="navbar-brand p-0 d-flex align-items-center" style="flex-wrap: wrap;">
+      <img src="../img/logo.jpg" alt="Logo" style="height: 100px; width: auto;" class="me-2" id="logo-img">
+
+      <div style="display: flex; flex-direction: column; justify-content: center; height: 100px; padding-top: 10px;" id="brand-text">
+        <h1 class="m-0 text-uppercase" style="color: #164259 !important; line-height: 1;" id="brand-name">SRIJA CONSULTANCY</h1>
+        <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center; line-height: 1.2;" id="brand-tagline">
+          "We will empower your workforce, <br>so you can empower your business"
         </div>
+      </div>
     </a>
+
+    <!-- Hamburger Toggle -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Nav Links & Profile Dropdown -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ms-auto d-flex align-items-center gap-3 me-3 py-2">
-        <!-- Static Links -->
         <li class="nav-item"><a href="admin_index.html" class="nav-link active">Home</a></li>
         <li class="nav-item"><a href="admin_about.html" class="nav-link">About</a></li>
         <li class="nav-item"><a href="admin_jobs_new.html" class="nav-link">Jobs</a></li>
@@ -49,20 +52,47 @@
                 <i class="bi bi-pencil-square"></i> Update UI
               </a>
             </li>
+            <li><hr class="dropdown-divider" /></li>
             <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <button
-                class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger bg-transparent border-0 w-100"
+              <button class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger bg-transparent border-0 w-100"
                 onclick="handleLogout()">
                 <i class="bi bi-box-arrow-right"></i> Logout
               </button>
             </li>
           </ul>
         </li>
-
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Responsive Fixes for Mobile View -->
+<style>
+  @media (max-width: 576px) {
+    #logo-img {
+      height: 60px !important;
+    }
+
+    #brand-text {
+      height: auto !important;
+      padding-top: 0 !important;
+      padding-left: 5px;
+      text-align: left;
+    }
+
+    #brand-name {
+      font-size: 16px !important;
+      line-height: 1.2 !important;
+    }
+
+    #brand-tagline {
+      font-size: 11px !important;
+      text-align: left !important;
+      line-height: 1.2 !important;
+    }
+
+    .navbar-nav {
+      gap: 0 !important;
+    }
+  }
+</style>
