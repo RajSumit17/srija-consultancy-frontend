@@ -23,380 +23,290 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Libraries Stylesheet -->
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-
-  <!-- Customized Bootstrap Stylesheet -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Template Stylesheet -->
-  <link href="../css/style.css" rel="stylesheet" />
-</head>
-
-<div>
-  <!-- Topbar Start -->
-  <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
-    <div class="row gx-0">
-    </div>
-  </div>
-  <!-- Topbar End -->
-
-
-  <div id="header-placeholder"></div>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
-
-
-
-
-  <!-- Carousel Section with Background Image -->
-  <div
-    style="background: url('img/imgjob.jpg') no-repeat center center / cover; padding: 60px 0; width: 100%; margin: 0;">
-    
-      <!-- Category Carousel -->
-      <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carousel-inner"></div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-  </div>
-
-
-  <!-- External JS File -->
-  <script type="module" src="js/renderHomeCategories.js"></script>
-  <!-- Animation Keyframes (inline) -->
-  <style>
-    @keyframes slideLeft {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
-
-
-  <!-- Carousel Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#jobsCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#jobsCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- About Start -->
-<img class="container-fluid bg-secondary p-0">
-  <img class="row g-0">
-    <img class="col-lg-6 py-6 px-5">
-      <h1 class="display-5 mb-4">Welcome To <span class="text-primary">SRIJA CONSULTANCY</span></h1>
-      <h4 class="text-primary mb-4">Empowering your workforce. Building your future.</h4>
-      <p class="mb-4">We specialize in delivering reliable HR solutions, connecting the right talent with the
-        right opportunities, and enabling organizations to thrive. Our team of expert consultants
-        understands your unique business challenges and offers tailored HR strategies that drive success.
-        We’re dedicated to helping businesses grow by placing top talent in roles that match their skills
-        and ambitions. Let us take your workforce to the next level with our trusted HR services.</p>
-      <!-- View More Button -->
-      <a class="btn btn-primary py-md-3 px-md-5 rounded-pill" data-bs-toggle="modal" data-bs-target="#founderModal">View
-        More</a>
-      <!-- Founder Modal -->
-      <img class="modal fade" id="founderModal" tabindex="-1" aria-labelledby="founderModalLabel" aria-hidden="true">
-        <img class="modal-dialog modal-dialog-centered">
-          <img class="modal-content border-0 bg-transparent">
-            <img class="modal-body p-0">
-              <img class="card bg-white text-primary border-0 rounded-4 w-100">
-                <img class="card-body p-0">
-                  <img class="p-4">
-                    <h3 class="card-title mb-3 text-center" style="color: #164259; font-weight: bold;">Meet Our
-                      Founder</h3>
-                    <img class="d-flex justify-content-center mb-3">
-                      <img src="../img/founder.jpg" alt="Mr. Shambhu Alagundagi"
-                        class="rounded-circle border border-3 border-primary"
-                        style="width: 160px; height: 160px; object-fit: cover;">
-                    </img>
-                    <h4 class="mb-1 text-center" style="color: #164259; font-weight: bold;">Mr. Shambhu Alagundagi
-                    </h4>
-                    <h6 class="mb-3 text-center" style="color: #164259; font-weight: bold;">Founder &amp; CEO</h6>
-                    <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
-                      A dynamic leader and visionary, Mr. Shambhu Alagundagi is the face behind Srija Consultancy.
-                      With a deep understanding of business dynamics and people management, he has laid the foundation
-                      for a firm that stands for ethical hiring, growth, and client satisfaction.
-                    </p>
-                    <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
-                      Passionate about bridging the employment gap in India, he believes in action, accountability,
-                      and empowering people to reach their potential. His leadership steers Srija with purpose and
-                      commitment.
-                    </p>
-                    <div class="d-flex flex-column align-items-center gap-2" style="font-weight: bold; color: #164259;">
-                      <div>
-                        <i class="bi bi-geo-alt me-2"></i> Hubballi, Karnataka
-                      </div>
-                      <div>
-                        <i class="bi bi-telephone me-2"></i> +91 94494 49607
-                      </div>
-                      <div>
-                        <i class="bi bi-envelope me-2"></i> hr@srijaconsultancy.in
-                      </div>
-                    </div>
-                  </img>
-                </img>
-              </img>
-              <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </img>
-          </img>
-        </img>
-      </img>
-      <style>
-        #founderModal .card {
-          transition: box-shadow 0.3s;
-          box-shadow: none;
-          background: #fff !important;
-        }
-
-        #founderModal .card:hover {
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-        }
-
-        #founderModal .modal-content {
-          background: transparent;
-        }
-
-        #founderModal .card * {
-          color: #258f76 !important;
-        }
-
-        #founderModal .card .text-secondary {
-          color: #6c757d !important;
-        }
-
-        #founderModal .card .text-primary {
-          color: #258f76 !important;
-        }
-
-        #founderModal .card-body {
-          padding: 0;
-        }
-      </style>
-
-
-    </img>
-    <div class="col-lg-6">
-      <div class="h-100 d-flex flex-column justify-content-center bg-primary p-5">
-        <div class="d-flex text-white mb-5">
-          <div
-            class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
-            style="width: 60px; height: 60px;">
-            <i class="fa fa-user-tie fs-4"></i>
-          </div>
-          <div class="ps-4">
-            <h3 class="text-white">HR Strategy & Planning</h3>
-            <p class="mb-0">We partner with businesses to design and implement tailored HR strategies
-              that align with their goals and culture. Let us help you optimize your workforce for
-              long-term success.</p>
-          </div>
-        </div>
-        <div class="d-flex text-white mb-5">
-          <div
-            class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
-            style="width: 60px; height: 60px;">
-            <i class="fa fa-chart-line fs-4"></i>
-          </div>
-          <div class="ps-4">
-            <h3 class="text-white">Talent Acquisition & Development</h3>
-            <p class="mb-0">Our team finds, attracts, and nurtures the right talent to drive your
-              business forward. From recruitment to training, we’re with you every step of the way.
-            </p>
-          </div>
-        </div>
-        <div class="d-flex text-white">
-          <div
-            class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
-            style="width: 60px; height: 60px;">
-            <i class="fa fa-balance-scale fs-4"></i>
-          </div>
-          <div class="ps-4">
-            <h3 class="text-white">HR Compliance & Advisory</h3>
-            <p class="mb-0">Stay ahead of the curve with our expert HR compliance and advisory services.
-              We’ll help you navigate the complex world of labor laws and best practices with
-              confidence.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </img>
-</img>
-<!-- About End -->
-
-
-<!-- Carousel Section Start -->
-<div style="margin-top: 70px;"></div>
-<div id="sagittariusCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" id="blogCarouselContainer">
-
-    <!-- Title -->
-    <div class="text-center mx-auto mb-3" style="max-width: 500px;">
-      <h1 class="display-6 mb-0">Blog</h1>
-      <hr class="w-25 mx-auto bg-primary">
-    </div>
-
-    <!-- Blog Card will be injected here -->
-    <div id="single-blog-wrapper" class="d-flex justify-content-center"></div>
-
-    <!-- View More Button -->
-    <div style="margin-top: 20px; text-align: center;">
-      <a href="blog.html"
-        style="background-color: #152440; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        View More
-      </a>
-    </div>
-
-
-    <!-- Carousel Section End -->
-
-
-    <!-- Testimonials Start -->
-    <div class="container-fluid py-6 px-5">
-      <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-        <h1 class="display-5 mb-0">Testimonials</h1>
-        <hr class="w-25 mx-auto bg-primary">
-      </div>
-      <!-- Carousel for testimonials -->
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- Testimonial 1 -->
-          <div class="carousel-item active">
-            <div class="row justify-content-center">
-              <div class="col-md-8 col-lg-6">
-                <div class="bg-light rounded p-4 text-center shadow-sm">
-                  <img src="../img/team-1.jpg" alt="Client 1" class="rounded-circle mb-3"
-                    style="width:70px; height:70px; object-fit:cover;">
-                  <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy helped us find the right
-                    talent quickly and efficiently. Highly recommended!"</p>
-                  <h5 class="mb-0 fw-bold">Anil Kumar</h5>
-                  <span class="text-muted">HR Manager, TechNova Pvt Ltd</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Testimonial 2 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8 col-lg-6">
-                <div class="bg-light rounded p-4 text-center shadow-sm">
-                  <img src="../img/team-2.jpg" alt="Client 2" class="rounded-circle mb-3"
-                    style="width:70px; height:70px; object-fit:cover;">
-                  <p class="mb-3" style="font-size:1.1rem;">"Professional, responsive, and reliable HR
-                    solutions. Our go-to partner for recruitment."</p>
-                  <h5 class="mb-0 fw-bold">Priya Desai</h5>
-                  <span class="text-muted">Director, Desai Industries</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Testimonial 3 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8 col-lg-6">
-                <div class="bg-light rounded p-4 text-center shadow-sm">
-                  <img src="../img/team-3.jpg" alt="Client 3" class="rounded-circle mb-3"
-                    style="width:70px; height:70px; object-fit:cover;">
-                  <p class="mb-3" style="font-size:1.1rem;">"Their team understood our needs and delivered
-                    beyond expectations. Thank you!"</p>
-                  <h5 class="mb-0 fw-bold">Ravi Shetty</h5>
-                  <span class="text-muted">Founder, Shetty Logistics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Testimonial 4 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8 col-lg-6">
-                <div class="bg-light rounded p-4 text-center shadow-sm">
-                  <img src="../img/team-1.jpg" alt="Client 4" class="rounded-circle mb-3"
-                    style="width:70px; height:70px; object-fit:cover;">
-                  <p class="mb-3" style="font-size:1.1rem;">"Excellent support throughout the hiring
-                    process. Will work with them again."</p>
-                  <h5 class="mb-0 fw-bold">Sneha Patil</h5>
-                  <span class="text-muted">HR Lead, Patil Enterprises</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Testimonial 5 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8 col-lg-6">
-                <div class="bg-light rounded p-4 text-center shadow-sm">
-                  <img src="../img/team-2.jpg" alt="Client 5" class="rounded-circle mb-3"
-                    style="width:70px; height:70px; object-fit:cover;">
-                  <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy’s expertise made a real
-                    difference to our business."</p>
-                  <h5 class="mb-0 fw-bold">Vikram Joshi</h5>
-                  <span class="text-muted">CEO, Joshi AgroTech</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Carousel controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <!-- Testimonials End -->
-
-    <div id="footer-placeholder"></div>
-
-    <!-- Your page content -->
-
-    <script>
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('footer-placeholder').innerHTML = data;
-        });
-    </script>
-    <script src="js/renderSingleBlog.js"></script>
-
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-        class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
+  <head href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <!-- Template Javascript -->
-    <script type="module" src="js/main.js"></script>
-    </body>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      #founderModal .card {
+        transition: box-shadow 0.3s;
+        box-shadow: none;
+        background: #fff !important;
+      }
+
+      #founderModal .card:hover {
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      #founderModal .modal-content {
+        background: transparent;
+      }
+
+      #founderModal .card * {
+        color: #258f76 !important;
+      }
+
+      #founderModal .card .text-secondary {
+        color: #6c757d !important;
+      }
+
+      #founderModal .card .text-primary {
+        color: #258f76 !important;
+      }
+
+      #founderModal .card-body {
+        padding: 0;
+      }
+
+      @keyframes slideLeft {
+        0% {
+          transform: translateX(100%);
+        }
+
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+
+<body>
+  <!-- Header Placeholder -->
+  <!-- This will be replaced by the header.html content -->
+  <div id="header-placeholder"></div>
+
+  <script>
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const name = sessionStorage.getItem("name");
+
+      if (name) {
+        document.getElementById("userName").innerText = name;
+        document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
+      } else {
+        document.getElementById("userName").innerText = "User";
+      }
+
+      document.getElementById("logoutBtn")?.addEventListener("click", () => {
+        sessionStorage.clear();
+      });
+    });
+  </script>
+
+  <!-- Topbar -->
+  <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+    <div class="row gx-0"></div>
+  </div>
+
+  <!-- Category Carousel Section -->
+  <!-- Jobs Carousel -->
+  <div
+    style="background: url('../img/imgjob.jpg') no-repeat center center / cover; padding: 60px 0; width: 100%; margin: 0;">
+    <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carousel-inner">
+        <!-- Categories will be injected here -->
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- External JS File -->
+  <script type="module" src="js/renderHomeCategories.js"></script>
+
+
+  <!-- About Start -->
+  <div class="container-fluid bg-secondary p-0">
+    <div class="row g-0">
+      <div class="col-lg-6 py-6 px-5">
+        <h1 class="display-5 mb-4">Welcome To <span class="text-primary">SRIJA CONSULTANCY</span></h1>
+        <h4 class="text-primary mb-4">Empowering your workforce. Building your future.</h4>
+        <p class="mb-4">We specialize in delivering reliable HR solutions, connecting the right talent with the
+          right opportunities, and enabling organizations to thrive. Our team of expert consultants
+          understands your unique business challenges and offers tailored HR strategies that drive success.
+          We’re dedicated to helping businesses grow by placing top talent in roles that match their skills
+          and ambitions. Let us take your workforce to the next level with our trusted HR services.</p>
+        <!-- View More Button -->
+        <a class="btn btn-primary py-md-3 px-md-5 rounded-pill" data-bs-toggle="modal"
+          data-bs-target="#founderModal">View More</a>
+        <!-- Founder Modal -->
+        <div class="modal fade" id="founderModal" tabindex="-1" aria-labelledby="founderModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 bg-transparent">
+              <div class="modal-body p-0">
+                <div class="card bg-white text-primary border-0 rounded-4 w-100">
+                  <div class="card-body p-0">
+                    <div class="p-4">
+                      <h3 class="card-title mb-3 text-center" style="color: #164259; font-weight: bold;">Meet Our
+                        Founder</h3>
+                      <div class="d-flex justify-content-center mb-3">
+                        <img src="../img/founder.jpg" alt="Mr. Shambhu Alagundagi"
+                          class="rounded-circle border border-3 border-primary"
+                          style="width: 160px; height: 160px; object-fit: cover;">
+                      </div>
+                      <h4 class="mb-1 text-center" style="color: #164259; font-weight: bold;">Mr. Shambhu Alagundagi
+                      </h4>
+                      <h6 class="mb-3 text-center" style="color: #164259; font-weight: bold;">Founder &amp; CEO</h6>
+                      <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
+                        A dynamic leader and visionary, Mr. Shambhu Alagundagi is the face behind Srija Consultancy.
+                        With a deep understanding of business dynamics and people management, he has laid the foundation
+                        for a firm that stands for ethical hiring, growth, and client satisfaction.
+                      </p>
+                      <p class="mb-3 text-center" style="color: #212529; font-weight: bold;">
+                        Passionate about bridging the employment gap in India, he believes in action, accountability,
+                        and empowering people to reach their potential. His leadership steers Srija with purpose and
+                        commitment.
+                      </p>
+                      <div class="d-flex flex-column align-items-center gap-2"
+                        style="font-weight: bold; color: #164259;">
+                        <div>
+                          <i class="bi bi-geo-alt me-2"></i> Hubballi, Karnataka
+                        </div>
+                        <div>
+                          <i class="bi bi-telephone me-2"></i> +91 94494 49607
+                        </div>
+                        <div>
+                          <i class="bi bi-envelope me-2"></i> hr@srijaconsultancy.in
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-lg-6">
+        <div class="h-100 d-flex flex-column justify-content-center bg-primary p-5">
+          <div class="d-flex text-white mb-5">
+            <div
+              class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+              style="width: 60px; height: 60px;">
+              <i class="fa fa-user-tie fs-4"></i>
+            </div>
+            <div class="ps-4">
+              <h3 class="text-white">HR Strategy & Planning</h3>
+              <p class="mb-0">We partner with businesses to design and implement tailored HR strategies
+                that align with their goals and culture. Let us help you optimize your workforce for
+                long-term success.</p>
+            </div>
+          </div>
+          <div class="d-flex text-white mb-5">
+            <div
+              class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+              style="width: 60px; height: 60px;">
+              <i class="fa fa-chart-line fs-4"></i>
+            </div>
+            <div class="ps-4">
+              <h3 class="text-white">Talent Acquisition & Development</h3>
+              <p class="mb-0">Our team finds, attracts, and nurtures the right talent to drive your
+                business forward. From recruitment to training, we’re with you every step of the way.
+              </p>
+            </div>
+          </div>
+          <div class="d-flex text-white">
+            <div
+              class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+              style="width: 60px; height: 60px;">
+              <i class="fa fa-balance-scale fs-4"></i>
+            </div>
+            <div class="ps-4">
+              <h3 class="text-white">HR Compliance & Advisory</h3>
+              <p class="mb-0">Stay ahead of the curve with our expert HR compliance and advisory services.
+                We’ll help you navigate the complex world of labor laws and best practices with
+                confidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- About End -->
+
+<!-- Testimonials Carousel Start -->
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="display-5 fw-bold">Testimonials</h2>
+    <hr class="w-25 mx-auto bg-primary">
+  </div>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner text-center">
+
+      <!-- Testimonial 1 -->
+      <div class="carousel-item active">
+        <img src="../img/team-1.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 1">
+        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+          "Srija Consultancy helped us find the right talent quickly and efficiently. Highly recommended!"
+        </p>
+        <h5 class="fw-bold mb-0">Anil Kumar</h5>
+        <small class="text-muted">HR Manager, TechNova Pvt Ltd</small>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="carousel-item">
+        <img src="../img/team-2.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 2">
+        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+          "Professional, responsive, and reliable HR solutions. Our go-to partner for recruitment."
+        </p>
+        <h5 class="fw-bold mb-0">Priya Desai</h5>
+        <small class="text-muted">Director, Desai Industries</small>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="carousel-item">
+        <img src="../img/team-3.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 3">
+        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+          "Their team understood our needs and delivered beyond expectations. Thank you!"
+        </p>
+        <h5 class="fw-bold mb-0">Ravi Shetty</h5>
+        <small class="text-muted">Founder, Shetty Logistics</small>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!-- Testimonials Carousel End -->
+
+
+</body>
 
 </html>
