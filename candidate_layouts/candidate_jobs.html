@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<link>
     <meta charset="utf-8">
     <title>Jobs- Srija Consultancy </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -32,9 +32,9 @@
     <link href="../css/style.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #FFF;
+            background-color: #fff;
             color: #000;
-            font-family: 'Open Sans', sans-serif;
+            font-family: "Open Sans", sans-serif;
         }
 
         .job-list {
@@ -42,15 +42,56 @@
             margin: 40px auto;
         }
 
+        /* Align dropdown below icon and add hover/select styles */
+        .custom-dropdown {
+            top: 100% !important;
+            right: 0;
+            left: auto !important;
+            margin-top: 10px;
+            z-index: 1050;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        /* Hover and active styles */
+        .custom-dropdown .dropdown-item {
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-radius: 0.375rem;
+        }
+
+        .custom-dropdown .dropdown-item:hover,
+        .custom-dropdown .dropdown-item:focus {
+            background-color: #e9f2f9;
+            color: #164259;
+        }
+
+        .custom-dropdown .dropdown-item.active {
+            background-color: #d0e7f7;
+            font-weight: 600;
+        }
+
+        /* Optional: subtle dropdown fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
         .job-list h1 {
             color: #000;
             font-weight: 700;
-            font-family: 'Barlow', sans-serif;
+            font-family: "Barlow", sans-serif;
             margin-bottom: 30px;
         }
 
         .job-card {
-            background: #FFF;
+            background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
             padding: 25px 30px;
@@ -62,7 +103,7 @@
 
         .job-card:hover {
             box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
-            border-left-color: #F3525A;
+            border-left-color: #f3525a;
         }
 
         .company-name {
@@ -93,7 +134,7 @@
             border-radius: 4px;
             padding: 6px 14px;
             white-space: nowrap;
-            color: #FFF;
+            color: #fff;
             font-weight: 600;
             box-shadow: inset 1px 1px 3px rgb(255 255 255 / 0.3);
             user-select: none;
@@ -104,7 +145,7 @@
             color: #000;
             margin: 12px 0 8px 0;
             font-size: 1.1rem;
-            border-bottom: 2px solid  #152440;
+            border-bottom: 2px solid #152440;
             padding-bottom: 4px;
             user-select: none;
         }
@@ -134,7 +175,7 @@
             right: 30px;
             background-color: #152440;
             border: none;
-            color: #FFF;
+            color: #fff;
             padding: 8px 16px;
             font-weight: 600;
             border-radius: 4px;
@@ -145,7 +186,7 @@
         }
 
         .apply-btn:hover {
-            background-color: #F3525A;
+            background-color: #f3525a;
         }
 
         /* Modal Styles */
@@ -167,7 +208,7 @@
         }
 
         .modal {
-            background: #FFF;
+            background: #fff;
             border-radius: 8px;
             max-width: 480px;
             width: 90%;
@@ -232,7 +273,7 @@
         .btn-submit {
             background-color: #152440;
             border: none;
-            color: #FFF;
+            color: #fff;
             padding: 10px 22px;
             font-weight: 600;
             border-radius: 4px;
@@ -260,13 +301,37 @@
         }
 
         .error-message {
-            color: #F3525A;
+            color: #f3525a;
             font-size: 0.875rem;
             margin-bottom: 8px;
             display: none;
         }
+
+        .category-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-card img {
+            max-height: 60px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        .category-card h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
     </style>
-</head>
 
 <body>
     <!-- Topbar Start -->
@@ -275,7 +340,7 @@
     </div>
     <!-- Topbar End -->
 
-   <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <script>
         fetch('candidate_header.html')
             .then(res => res.text())
@@ -285,105 +350,42 @@
     </script>
 
 
-    <!-- Job Postings Start -->
-    <!-- Job Search Bar Start -->
-    <div class="container" style="max-width:900px; margin: 30px auto 0 auto;">
-        <form id="jobSearchForm" class="d-flex mb-4 align-items-center">
-            <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search jobs by title, company, location..."
-            aria-label="Search jobs"
-            id="jobSearchInput"
-            style="font-size:1.1rem; border-radius:6px;"
-            />
-            <button class="btn btn-primary me-2" type="submit" style="border-radius:6px; font-size:0.95rem; padding:6px 16px; white-space:nowrap;">Search</button>
+    <div class="container mt-4">
+         
+        <h2 class="text-center fw-bold">List of Job Categories</h2>
+         
+        <p class="text-center text-muted">
+                Discover occupations that match your skills and ambitions  
+        </p>
 
-        </form>
-        <!-- Add Job Modal Overlay (hidden by default) -->
-        <div id="addJobModalOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(21,36,64,0.75); z-index:2000; align-items:center; justify-content:center;">
-            <div style="background:#fff; border-radius:8px; max-width:600px; width:90%; padding:24px; box-shadow:0 8px 24px rgba(0,0,0,0.18); position:relative; max-height:90vh; overflow-y:auto;">
-            <form id="addJobForm">
-                <h4 style="margin-top:0; color:#152440;">Add New Job</h4>
-                <div class="mb-2">
-                <label for="jobCompany" class="form-label">Company Name</label>
-                <input type="text" class="form-control" id="jobCompany" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobTitle" class="form-label">Job Title</label>
-                <input type="text" class="form-control" id="jobTitle" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobSalary" class="form-label">Salary</label>
-                <input type="text" class="form-control" id="jobSalary" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobType" class="form-label">Job Type</label>
-                <input type="text" class="form-control" id="jobType" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobLocation" class="form-label">Location</label>
-                <input type="text" class="form-control" id="jobLocation" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobExperience" class="form-label">Experience</label>
-                <input type="text" class="form-control" id="jobExperience" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobVacancy" class="form-label">Vacancy</label>
-                <input type="text" class="form-control" id="jobVacancy" required>
-                </div>
-                <div class="mb-2">
-                <label for="jobDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="jobDescription" required></textarea>
-                </div>
-                <div class="mb-2">
-                <label for="jobQualification" class="form-label">Qualification</label>
-                <textarea class="form-control" id="jobQualification" required></textarea>
-                </div>
-                <div class="mb-2">
-                <label for="jobResponsibilities" class="form-label">Responsibilities</label>
-                <textarea class="form-control" id="jobResponsibilities" required></textarea>
-                </div>
-                <div class="mt-3 d-flex justify-content-end">
-                <button type="button" class="btn btn-secondary me-2" id="cancelAddJob">Cancel</button>
-                </div>
-            </form>
-            <button type="button" id="closeAddJobModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.5rem; color:#152440; cursor:pointer;">&times;</button>
-            </div>
+         
+        <div class="mb-4 d-flex justify-content-center">
+               
+            <input type="text" class="form-control w-50" id="categorySearchInput" placeholder="Search categories..." />
+             
         </div>
-        <script>
-            // Show Add Job Modal
-            document.getElementById('addJobBtn').onclick = function() {
-            document.getElementById('addJobModalOverlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            };
-            // Hide Add Job Modal
-            function closeAddJobModal() {
-            document.getElementById('addJobModalOverlay').style.display = 'none';
-            document.getElementById('addJobForm').reset();
-            document.body.style.overflow = '';
-            }
-            document.getElementById('cancelAddJob').onclick = closeAddJobModal;
-            document.getElementById('closeAddJobModal').onclick = closeAddJobModal;
-            // Close modal when clicking outside the form
-            document.getElementById('addJobModalOverlay').onclick = function(e) {
-            if (e.target === this) closeAddJobModal();
-            };
-        </script>
-        </form>
+
+         
+        <div class="row" id="categoryContainer"></div>
+
+         
+        <!-- 🔽 Loader moved here -->
+         
+        <div id="loader" style="display: none; text-align: center; margin-top: 40px">
+               
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem">
+                      <span class="visually-hidden">Loading...</span>    
+            </div>
+             
+        </div>
     </div>
     <!-- Job Search Bar End -->
 
-    <div class="job-list">
-        <h1>Current Job Postings</h1>
-    </div>
-
-    <script type="module" src="../js/renderCandidateJobs.js"></script>
-   
+    <!-- <script type="module" src="../js/renderCandidateJobs.js"></script> -->
+    <script type="module" src="../js/renderJobCategory.js"></script>
     <!-- Job Postings End -->
 
-     <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
     <!-- Your page content -->
 
@@ -396,4 +398,5 @@
     </script>
 
 </body>
+
 </html>

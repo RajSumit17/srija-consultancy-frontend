@@ -30,7 +30,7 @@ const fetchCurrentUser = () => {
     if (user) {
       console.log("User is signed in:", user.email);
     } else {
-      console.log("No user is signed in");
+      console.log("No user is signed in"); 
       window.location.replace("../index.html");
     }
   });
@@ -45,6 +45,7 @@ console.log(recruiterEmail);
 
 // ✅ Fetch all jobs requested by this recruiter
 async function fetchRequestedJobs() {
+  console.log("Fetching jobs for recruiter:", recruiterEmail);
   try {
     const response = await fetch(
       `https://srija-consultancy-backend.onrender.com/api/recruiter/getJobsPosted`,

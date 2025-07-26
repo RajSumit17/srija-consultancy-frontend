@@ -51,7 +51,8 @@ export async function signupCandidate() {
     formData.append("number", number);
     formData.append("education", education);
     formData.append("resume", resume);
-
+    const localURL = "http://localhost:8080";
+    const renderURL = "https://srija-consultancy-backend.onrender.com";
     const res = await fetch("https://srija-consultancy-backend.onrender.com/api/signup/candidate", {
       method: "POST",
       body: formData,

@@ -1,57 +1,67 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
   <div class="container-fluid">
     <!-- Logo and Title -->
-     <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+      <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
         <img src="../img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2">
-        <a>
-            <h1 class="m-0 text-uppercase" style="color: #164259 !important;">SRIJA CONSULTANCY</h1>
-            <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center;">
-                "We will empower your workforce, <br>so you can empower your business"
-            </p>
+        <div style="display: flex; flex-direction: column; justify-content: center; height: 100px; padding-top: 10px;">
+            <h1 class="m-0 text-uppercase" style="color: #164259 !important; line-height: 1;">SRIJA CONSULTANCY</h1>
+            <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center; line-height: 1.2;">
+            "We will empower your workforce, <br>so you can empower your business"
+            </div>
+        </div>
         </div>
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ms-auto d-flex align-items-center gap-3 me-3 py-2">
-        <!-- Static Nav Items -->
-        <li class="nav-item"><a href="recruiter_index.html" class="nav-link active">Home</a></li>
-        <li class="nav-item"><a href="recruiter_about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="recruiter_jobs.html" class="nav-link">Jobs</a></li>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Dropdown -->
-        <li class="nav-item dropdown position-relative">
-          <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="profileDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" width="30" height="30"
-              class="rounded-circle me-2" />
-            <span id="userFirstName" class="d-none d-md-inline">Loading...</span>
-          </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto d-flex align-items-center gap-3 me-3 py-2">
+          <!-- Static Nav Items -->
+          <li class="nav-item"><a href="recruiter_index.html" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="recruiter_about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="recruiter_jobs.html" class="nav-link">Jobs</a></li>
 
-          <ul class="dropdown-menu dropdown-menu-end shadow rounded-3 border-0 mt-2 p-2 custom-dropdown"
-            aria-labelledby="profileDropdown" style="min-width: 220px;">
-            <li>
-              <h6 class="dropdown-header text-primary fw-semibold" id="dropdownHeader">Welcome</h6>
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="recruiter_contact.html">
-                <i class="bi bi-telephone-forward"></i> Contact Us
-              </a>
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li>
-              <button
-                class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger bg-transparent border-0 w-100"
-                onclick="handleLogout()">
-                <i class="bi bi-box-arrow-right"></i> Logout
-              </button>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown position-relative">
+            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="profileDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" width="30" height="30"
+                class="rounded-circle me-2" />
+              <span id="userFirstName" class="d-none d-md-inline">Loading...</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow rounded-3 border-0 mt-2 p-2 custom-dropdown"
+              aria-labelledby="profileDropdown" style="min-width: 220px;">
+              <li>
+                <h6 class="dropdown-header text-primary fw-semibold" id="dropdownHeader">Welcome</h6>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="recruiter_request_job.html">
+                  <i class="bi bi-file-earmark-plus"></i> Request Job Posting
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="recruiter_contact.html">
+                  <i class="bi bi-telephone-forward"></i> Contact Us
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <button
+                  class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger bg-transparent border-0 w-100"
+                  onclick="handleLogout()">
+                  <i class="bi bi-box-arrow-right"></i> Logout
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  
 </nav>

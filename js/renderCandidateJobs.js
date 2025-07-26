@@ -42,6 +42,7 @@ const form = document.getElementById("addJobForm");
 
 // Fetch and render all jobs
 async function fetchAndRenderJobs() {
+  // https://srija-consultancy-backend.onrender.com
   const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getAllJobs");
   const data = await res.json(); // data = { jobs: [...] }
   const jobs = data.jobs; // extract the array

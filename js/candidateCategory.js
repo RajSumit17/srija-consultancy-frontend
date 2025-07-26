@@ -41,34 +41,38 @@ const renderJobs = (jobs) => {
   }
 
   jobs.forEach((job) => {
-    const jobCard = document.createElement("div");
-    jobCard.className =
-      "job-card mb-4 p-4 rounded shadow-sm border border-1 bg-light";
+  const jobCard = document.createElement("div");
+  jobCard.className =
+    "job-card mb-4 p-4 rounded shadow-sm border border-1 bg-light";
 
-    jobCard.innerHTML = `
-      <div class="d-flex justify-content-between align-items-start mb-2">
-        <h4 class="text-primary mb-1">${job.title}</h4>
-        <button class="btn btn-sm text-danger border-0 bg-transparent delete-btn" title="Delete">
-              <i class="bi bi-trash-fill fs-5"></i>
-        </button>
-      </div>
-      <p class="mb-1"><em>${job.company}</em></p>
-      <p class="mb-1"><strong>Location:</strong> ${job.location}</p>
-      <p class="mb-1"><strong>Experience:</strong> ${job.experience}</p>
-      <p class="mb-1"><strong>Salary:</strong> ${job.salary}</p>
-      <p class="mb-1"><strong>Type:</strong> ${job.jobType}</p>
-      <p class="mb-1"><strong>Vacancy:</strong> ${job.vacancy}</p>
-      <p class="mb-1"><strong>Qualification:</strong> ${job.qualification}</p>
-      <p class="mb-2"><strong>Description:</strong> ${job.description}</p>
-    `;
+  jobCard.innerHTML = `
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h4 class="text-primary mb-1">${job.title}</h4>
+    </div>
+    <p class="mb-1"><em>${job.company}</em></p>
+    <p class="mb-1"><strong>Location:</strong> ${job.location}</p>
+    <p class="mb-1"><strong>Experience:</strong> ${job.experience}</p>
+    <p class="mb-1"><strong>Salary:</strong> ${job.salary}</p>
+    <p class="mb-1"><strong>Type:</strong> ${job.jobType}</p>
+    <p class="mb-1"><strong>Vacancy:</strong> ${job.vacancy}</p>
+    <p class="mb-1"><strong>Qualification:</strong> ${job.qualification}</p>
+    <p class="mb-3"><strong>Description:</strong> ${job.description}</p>
 
-    const deleteBtn = jobCard.querySelector(".delete-btn");
-    deleteBtn.addEventListener("click", () => {
-      showDeleteDialog(job.uniqueJobId, category, jobCard);
-    });
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-outline-primary btn-sm interested-btn">
+        <i class="bi bi-hand-thumbs-up me-1"></i> Interested
+      </button>
+    </div>
+  `;
 
-    jobListContainer.appendChild(jobCard);
+  const interestBtn = jobCard.querySelector(".interested-btn");
+  interestBtn.addEventListener("click", () => {
+    showInterest(job.uniqueJobId); // Your handler
   });
+
+  jobListContainer.appendChild(jobCard);
+});
+
 };
 
 // Store delete data temporarily

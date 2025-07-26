@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link>
+<head>
   <meta charset="utf-8" />
   <title>Jobs- Srija Consultancy</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -345,7 +345,7 @@
       font-weight: 600;
     }
   </style>
-</link>
+</head>
 
 <body>
   <!-- Topbar Start -->
@@ -354,28 +354,15 @@
   </div>
   <!-- Topbar End -->
 
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("admin_header.html")
-      .then((res) => res.text())
-      .then((data) => {
-        document.getElementById("header-placeholder").innerHTML = data;
-      });
-    window.addEventListener("DOMContentLoaded", () => {
-      const name = sessionStorage.getItem("name");
+ <div id="header-placeholder"></div>
+    <script>
+        fetch('candidate_header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
-      if (name) {
-        document.getElementById("userName").innerText = name;
-        document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
-      } else {
-        document.getElementById("userName").innerText = "User";
-      }
-
-      document.getElementById("logoutBtn")?.addEventListener("click", () => {
-        sessionStorage.clear();
-      });
-    });
-  </script>
 
   <div class="container mt-4">
     <h1 id="categoryHeading" class="text-center mb-4">Category Jobs</h1>
@@ -421,16 +408,16 @@
 
   <div id="footer-placeholder"></div>
 
-  <!-- Your page content -->
+    <!-- Your page content -->
 
-  <script>
-    fetch("../footer.html")
-      .then((res) => res.text())
-      .then((data) => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
-  </script>
-  <script type="module" src="../js/adminCategory.js"></script>
+    <script>
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+  <script type="module" src="../js/candidateCategory.js"></script>
 </body>
 
 </html>

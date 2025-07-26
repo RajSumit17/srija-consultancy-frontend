@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Requested Jobs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Placeholder -->
+
+    <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+        <div class="row gx-0">
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('admin_header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+        window.addEventListener("DOMContentLoaded", () => {
+            const name = sessionStorage.getItem("name");
+
+            if (name) {
+                document.getElementById("userName").innerText = name;
+                document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
+            } else {
+                document.getElementById("userName").innerText = "User";
+            }
+
+            document.getElementById("logoutBtn")?.addEventListener("click", () => {
+                sessionStorage.clear();
+            });
+        });
+    </script>
+
+    <!-- Page Title -->
+    <div class="container-fluid bg-dark p-5 text-center">
+        <h1 class="text-white">Job Requests</h1>
+    </div>
+
+    <!-- Job Cards Container -->
+    <div class="container py-5" id="jobRequestContainer">
+        <!-- Cards will be injected here -->
+    </div>
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title text-white" id="confirmModalLabel">Confirm Job Approval</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to approve and publish this job request?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button id="modalConfirmBtn" type="button" class="btn btn-success">Yes, Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Your page content -->
+
+    <script>
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jobRequests.js"></script>
+</body>
+
+</html>

@@ -36,44 +36,49 @@ const fetchCurrentUser = () => {
 };
 fetchCurrentUser();
 async function fetchAndRenderCandidates() {
-  const res = await fetch(
-    "https://srija-consultancy-backend.onrender.com/api/candidate/fetchAllCandidates"
-  );
-  const data = await res.json(); // assuming { candidates: [...] }
-  const candidates = data.candidates;
-  console.log(candidates);
-  const container = document.getElementById("candidateListContainer");
-  // container.innerHTML = `<h1>Candidates</h1>`; // reset list
+  try {
+    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/candidate/fetchAllCandidates");
 
-  candidates.forEach((candidate) => {
-    const card = document.createElement("div");
-    card.className = "job-card";
+    if (!res.ok) {
+      throw new Error(`Failed to fetch candidates: ${res.status}`);
+    }
 
-    card.innerHTML = `
-  <div class="candidate-name">${candidate.name}</div>
+    const data = await res.json();
+    const candidates = data.candidates;
 
-  <div class="candidate-info">
-    <div class="info-item">
-      <i class="fas fa-envelope"></i> ${candidate.email}
+    const container = document.getElementById("candidateListContainer");
+    container.innerHTML = ""; // Clear existing content
+
+    candidates.forEach((candidate) => {
+      const card = document.createElement("div");
+      card.className = "job-card";
+
+      card.innerHTML = `
+  <div class="candidate-card p-4 rounded shadow-sm border bg-white mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="fw-bold text-primary mb-0">${candidate.name}</h5>
+      <a href="${candidate.resumeURL}" class="btn btn-outline-primary btn-sm" download target="_blank">
+        <i class="fas fa-download me-1"></i> Resume
+      </a>
     </div>
-    <div class="info-item">
-      <i class="fas fa-phone"></i> ${candidate.number}
-    </div>
-    <div class="info-item">
-      <i class="fas fa-graduation-cap"></i> ${candidate.education}
-    </div>
-  </div>
 
-  <div class="resume-section">
-    <div class="section-title">Resume</div>
-    <a href="${candidate.resumeURL}" class="download-btn" download target="_blank">
-      <i class="fas fa-download me-1"></i> Download Resume
-    </a>
+    <div class="candidate-details mb-2">
+      <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${candidate.email}</p>
+      <p class="mb-1"><i class="fas fa-phone text-muted me-2"></i> ${candidate.number}</p>
+      <p class="mb-0"><i class="fas fa-graduation-cap text-muted me-2"></i> ${candidate.education}</p>
+    </div>
   </div>
 `;
 
-    container.appendChild(card);
-  });
+
+      container.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Error fetching candidates:", error.message);
+    const container = document.getElementById("candidateListContainer");
+    container.innerHTML = `<p style="color: red;">Failed to load candidates.</p>`;
+  }
 }
+
 
 fetchAndRenderCandidates();

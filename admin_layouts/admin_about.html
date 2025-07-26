@@ -8,60 +8,27 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
+    <link href="img/favicon.ico" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
 
-<div>
-    <!-- Topbar Start -->
-
-    <!-- Topbar End -->
-
-
-     <div id="header-placeholder"></div>
+<body>
+    <div id="header-placeholder"></div>
     <script>
         fetch('admin_header.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
     </script>
-    <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const name = sessionStorage.getItem("name");
 
-    if (name) {
-      document.getElementById("userName").innerText = name;
-      document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
-    } else {
-      document.getElementById("userName").innerText = "User";
-    }
-
-    document.getElementById("logoutBtn")?.addEventListener("click", () => {
-      sessionStorage.clear();
-    });
-  });
-</script>
-
-    
     <!-- Page Header Start -->
     <div class="container-fluid bg-dark p-5">
         <div class="row">
@@ -72,243 +39,138 @@
     </div>
     <!-- Page Header End -->
 
-
-    <!-- About Start -->
-    
-    <!-- Features Start -->
+    <!-- About & Services Start -->
     <div class="container-fluid py-6 px-5">
-        <div class="row g-5 align-items-stretch">
-            <!-- Left Section: Vision & Mission -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="h-100 bg-light rounded p-4 shadow-sm d-flex flex-column justify-content-center">
-                    <h2 class="mb-4 text-primary fw-bold">Vision &amp; Mission</h2>
-                    <div class="mb-4">
-                        <div class="d-flex align-items-start mb-3">
+        <div class="row g-4 align-items-stretch">
+            <div class="text-center mx-auto mb-2" style="max-width: 600px;">
+                <h1 class="display-5 mb-1">Vision & Mission</h1>
+                <hr class="w-25 mx-auto bg-primary">
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="row w-100 justify-content-center">
+                    <!-- Vision -->
+                    <div class="col-lg-6 d-flex flex-grow-1 justify-content-center mb-3 mb-lg-0">
+                        <div class="h-100 w-100 bg-light rounded p-3 shadow-sm d-flex flex-column align-items-center text-center"
+                            style="font-size:1.25rem; font-weight:bold;">
                             <span
-                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:56px; height:56px;">
-                                <i class="fas fa-eye" style="font-size:2rem;"></i>
+                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-1"
+                                style="width:48px; height:48px;">
+                                <i class="fas fa-eye" style="font-size:1.8rem;"></i>
                             </span>
-                            <div>
-                                <h5 class="fw-semibold mb-1">Vision</h5>
-                                <p class="mb-0" style="font-size:1.08rem;">
-                                    To be a leading catalyst in shaping employable talent by bridging the gap between
-                                    education and the real job market.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-start">
-                            <span
-                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:56px; height:56px;">
-                                <i class="fas fa-bullseye" style="font-size:2rem;"></i>
-                            </span>
-                            <div>
-                                <h5 class="fw-semibold mb-1">Mission</h5>
-                                <p class="mb-0" style="font-size:1.08rem;">
-                                    To empower students, job seekers, and professionals by equipping them with the
-                                    practical skills, confidence, and support needed to succeed in today's competitive
-                                    world.
-                                </p>
-                            </div>
+                            <h5 class="fw-semibold mb-1" style="font-size:1.5rem; font-weight:bold;">Vision</h5>
+                            <p class="mb-0" style="font-size:1.15rem; max-width:330px; font-weight:bold;">
+                                To be a leading catalyst in shaping employable talent by bridging the gap between
+                                education and the real job market.
+                            </p>
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <!-- Right Section: Why Choose Us (as a vertical step chart) -->
-            <div class="col-lg-6">
-                <div
-                    class="h-100 bg-primary rounded p-4 shadow-sm text-white d-flex flex-column justify-content-center">
-                    <h2 class="mb-4 fw-bold text-white">Why Choose Srija Consultancy</h2>
-                    <div class="timeline position-relative ps-4">
-                        <div class="timeline-step mb-4 d-flex align-items-center">
-                            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:44px; height:44px;">
-                                <i class="fas fa-user-cog"></i>
-                            </div>
-                            <div>
-                                <span class="fw-semibold">Personalized and transparent HR solutions</span>
-                            </div>
+                    <!-- Mission -->
+                    <div class="col-lg-6 d-flex flex-grow-1 justify-content-center mb-3 mb-lg-0">
+                        <div class="h-100 w-100 bg-light rounded p-3 shadow-sm d-flex flex-column align-items-center text-center"
+                            style="font-size:1.25rem; font-weight:bold;">
+                            <span
+                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-1"
+                                style="width:48px; height:48px;">
+                                <i class="fas fa-bullseye" style="font-size:1.8rem;"></i>
+                            </span>
+                            <h5 class="fw-semibold mb-1" style="font-size:1.5rem; font-weight:bold;">Mission</h5>
+                            <p class="mb-0" style="font-size:1.15rem; max-width:330px; font-weight:bold;">
+                                To empower students, job seekers, and professionals by equipping them with the
+                                practical skills, confidence, and support needed to succeed in today's competitive
+                                world.
+                            </p>
                         </div>
-                        <div class="timeline-step mb-4 d-flex align-items-center">
-                            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:44px; height:44px;">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div>
-                                <span class="fw-semibold">Fast response and hiring turnaround time</span>
-                            </div>
-                        </div>
-                        <div class="timeline-step mb-4 d-flex align-items-center">
-                            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:44px; height:44px;">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <span class="fw-semibold">Industry-aware team of consultants</span>
-                            </div>
-                        </div>
-                        <div class="timeline-step mb-4 d-flex align-items-center">
-                            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:44px; height:44px;">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <div>
-                                <span class="fw-semibold">Deep focus on ethical hiring practices</span>
-                            </div>
-                        </div>
-                        <div class="timeline-step d-flex align-items-center">
-                            <div class="timeline-icon bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width:44px; height:44px;">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div>
-                                <span class="fw-semibold">End-to-end recruitment and onboarding support</span>
-                            </div>
-                        </div>
-                        <!-- Vertical line for chart effect -->
-                        <style>
-                            .timeline::before {
-                                content: '';
-                                position: absolute;
-                                left: 21px;
-                                top: 0;
-                                bottom: 0;
-                                width: 2px;
-                                background: rgba(255, 255, 255, 0.3);
-                            }
-
-                            @media (max-width: 991.98px) {
-                                .timeline::before {
-                                    left: 21px;
-                                }
-                            }
-                        </style>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <!-- Testimonials Start -->
-    <div class="container-fluid py-6 px-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-0">Testimonials</h1>
+        <!-- Services -->
+        <div class="text-center mx-auto mt-5 mb-4" style="max-width: 500px;">
+            <h1 class="display-6 mb-0">Our Services</h1>
             <hr class="w-25 mx-auto bg-primary">
         </div>
-        <!-- Carousel for testimonials -->
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Testimonial 1 -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="../img/team-1.jpg" alt="Client 1" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy helped us find the right
-                                    talent quickly and efficiently. Highly recommended!"</p>
-                                <h5 class="mb-0 fw-bold">Anil Kumar</h5>
-                                <span class="text-muted">HR Manager, TechNova Pvt Ltd</span>
-                            </div>
-                        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Service Items -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-user-tie fa-lg"></i>
                     </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="../img/team-2.jpg" alt="Client 2" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Professional, responsive, and reliable HR
-                                    solutions. Our go-to partner for recruitment."</p>
-                                <h5 class="mb-0 fw-bold">Priya Desai</h5>
-                                <span class="text-muted">Director, Desai Industries</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="../img/team-3.jpg" alt="Client 3" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Their team understood our needs and delivered
-                                    beyond expectations. Thank you!"</p>
-                                <h5 class="mb-0 fw-bold">Ravi Shetty</h5>
-                                <span class="text-muted">Founder, Shetty Logistics</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 4 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="../img/team-1.jpg" alt="Client 4" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Excellent support throughout the hiring
-                                    process. Will work with them again."</p>
-                                <h5 class="mb-0 fw-bold">Sneha Patil</h5>
-                                <span class="text-muted">HR Lead, Patil Enterprises</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 5 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="bg-light rounded p-4 text-center shadow-sm">
-                                <img src="../img/team-2.jpg" alt="Client 5" class="rounded-circle mb-3"
-                                    style="width:70px; height:70px; object-fit:cover;">
-                                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy’s expertise made a real
-                                    difference to our business."</p>
-                                <h5 class="mb-0 fw-bold">Vikram Joshi</h5>
-                                <span class="text-muted">CEO, Joshi AgroTech</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h5 class="mb-2">HR Strategy & Workforce Planning</h5>
+                    <p class="mb-0 small">Aligning people strategy with business goals through structure design and workforce forecasting.</p>
                 </div>
             </div>
-            <!-- Carousel controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-chart-pie fa-lg"></i>
+                    </div>
+                    <h5 class="mb-2">Talent Acquisition & Recruitment</h5>
+                    <p class="mb-0 small">Strategic hiring from entry-level to leadership roles using a data-backed, people-first approach.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-chart-line fa-lg"></i>
+                    </div>
+                    <h5 class="mb-2">Employee Training & Development</h5>
+                    <p class="mb-0 small">Customized modules for leadership, communication, performance, and compliance.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-chart-area fa-lg"></i>
+                    </div>
+                    <h5 class="mb-2">HR Compliance & Advisory</h5>
+                    <p class="mb-0 small">Labour law advisory and end-to-end legal HR support.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-balance-scale fa-lg"></i>
+                    </div>
+                    <h5 class="mb-2">Legal Advisory</h5>
+                    <p class="mb-0 small">We provide guidance on workplace rights and employment laws to support candidates’ professional journeys.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="service-item bg-secondary text-center px-3 py-4 h-100">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-3"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-house-damage fa-lg"></i>
+                    </div>
+                    <h5 class="mb-2">Payroll & HR Operations</h5>
+                    <p class="mb-0 small">We connect job seekers and students with the right opportunities, ensuring they find the best roles to match their skills.</p>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Testimonials End -->
+    <!-- End of About & Services -->
 
-
-    
-     <div id="footer-placeholder"></div>
+   <!-- end about section -->
+    <div id="footer-placeholder"></div>
 
     <!-- Your page content -->
 
     <script>
-        fetch('../footer.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+      fetch('../footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
     </script>
-    <!-- Back to Top -->
+
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
             class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -316,10 +178,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-
-    <!-- Template Javascript -->
-     <script type="module" src="../js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
