@@ -37,6 +37,11 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <style>
+      .card {
+        max-width: 240px;
+        margin: auto;
+      }
+
       #founderModal .card {
         transition: box-shadow 0.3s;
         box-shadow: none;
@@ -249,63 +254,73 @@
   </div>
   <!-- About End -->
 
-<!-- Testimonials Carousel Start -->
-<div class="container py-5">
-  <div class="text-center mb-5">
-    <h2 class="display-5 fw-bold">Testimonials</h2>
-    <hr class="w-25 mx-auto bg-primary">
-  </div>
-
-  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner text-center">
-
-      <!-- Testimonial 1 -->
-      <div class="carousel-item active">
-        <img src="../img/team-1.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
-             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 1">
-        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
-          "Srija Consultancy helped us find the right talent quickly and efficiently. Highly recommended!"
-        </p>
-        <h5 class="fw-bold mb-0">Anil Kumar</h5>
-        <small class="text-muted">HR Manager, TechNova Pvt Ltd</small>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="carousel-item">
-        <img src="../img/team-2.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
-             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 2">
-        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
-          "Professional, responsive, and reliable HR solutions. Our go-to partner for recruitment."
-        </p>
-        <h5 class="fw-bold mb-0">Priya Desai</h5>
-        <small class="text-muted">Director, Desai Industries</small>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="carousel-item">
-        <img src="../img/team-3.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
-             style="width: 120px; height: 120px; object-fit: cover;" alt="Client 3">
-        <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
-          "Their team understood our needs and delivered beyond expectations. Thank you!"
-        </p>
-        <h5 class="fw-bold mb-0">Ravi Shetty</h5>
-        <small class="text-muted">Founder, Shetty Logistics</small>
-      </div>
+  <!-- Testimonials Carousel Start -->
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold">Testimonials</h2>
+      <hr class="w-25 mx-auto bg-primary">
     </div>
 
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-<!-- Testimonials Carousel End -->
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
 
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <img src="../img/team-1.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 1">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Srija Consultancy helped us find the right talent quickly and efficiently. Highly recommended!"
+          </p>
+          <h5 class="fw-bold mb-0">Anil Kumar</h5>
+          <small class="text-muted">HR Manager, TechNova Pvt Ltd</small>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <img src="../img/team-2.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 2">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Professional, responsive, and reliable HR solutions. Our go-to partner for recruitment."
+          </p>
+          <h5 class="fw-bold mb-0">Priya Desai</h5>
+          <small class="text-muted">Director, Desai Industries</small>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <img src="../img/team-3.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 3">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Their team understood our needs and delivered beyond expectations. Thank you!"
+          </p>
+          <h5 class="fw-bold mb-0">Ravi Shetty</h5>
+          <small class="text-muted">Founder, Shetty Logistics</small>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Testimonials Carousel End -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Your page content -->
+
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
 
 </body>
 

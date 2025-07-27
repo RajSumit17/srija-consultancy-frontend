@@ -11,7 +11,7 @@
   <!-- Favicon -->
   <link href="../img/favicon.ico" rel="icon">
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,61 +23,110 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Libraries Stylesheet -->
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <head href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
-  <!-- Customized Bootstrap Stylesheet -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Template Stylesheet -->
-  <link href="../css/style.css" rel="stylesheet" />
-</head>
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <style>
+      .card {
+        max-width: 240px;
+        margin: auto;
+      }
 
-<div>
-  <!-- Topbar Start -->
-  <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
-    <div class="row gx-0">
-    </div>
-  </div>
-  <!-- Topbar End -->
+      #founderModal .card {
+        transition: box-shadow 0.3s;
+        box-shadow: none;
+        background: #fff !important;
+      }
 
+      #founderModal .card:hover {
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+      }
 
-  <div id="header-placeholder"></div>
-    <script>
-      fetch("admin_header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-      window.addEventListener("DOMContentLoaded", () => {
-        const name = sessionStorage.getItem("name");
+      #founderModal .modal-content {
+        background: transparent;
+      }
 
-        if (name) {
-          document.getElementById("userName").innerText = name;
-          document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
-        } else {
-          document.getElementById("userName").innerText = "User";
+      #founderModal .card * {
+        color: #258f76 !important;
+      }
+
+      #founderModal .card .text-secondary {
+        color: #6c757d !important;
+      }
+
+      #founderModal .card .text-primary {
+        color: #258f76 !important;
+      }
+
+      #founderModal .card-body {
+        padding: 0;
+      }
+
+      @keyframes slideLeft {
+        0% {
+          transform: translateX(100%);
         }
 
-        document.getElementById("logoutBtn")?.addEventListener("click", () => {
-          sessionStorage.clear();
-        });
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+
+<body>
+  <!-- Header Placeholder -->
+  <!-- This will be replaced by the header.html content -->
+  <div id="header-placeholder"></div>
+
+  <script>
+    fetch("admin_header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header-placeholder").innerHTML = data;
       });
-    </script>
 
+    window.addEventListener("DOMContentLoaded", () => {
+      const name = sessionStorage.getItem("name");
 
+      if (name) {
+        document.getElementById("userName").innerText = name;
+        document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
+      } else {
+        document.getElementById("userName").innerText = "User";
+      }
 
+      document.getElementById("logoutBtn")?.addEventListener("click", () => {
+        sessionStorage.clear();
+      });
+    });
+  </script>
 
-  <!-- Carousel Section with Background Image -->
-  <div style="background: url('../img/imgjob.jpg') no-repeat center center / cover; padding: 60px 0; width: 100%; margin: 0;">
-  <div id="jobsCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Category Carousel -->
+  <!-- Topbar -->
+  <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+    <div class="row gx-0"></div>
+  </div>
+
+  <!-- Category Carousel Section -->
+  <!-- Jobs Carousel -->
+  <div
+    style="background: url('../img/imgjob.jpg') no-repeat center center / cover; padding: 60px 0; width: 100%; margin: 0;">
     <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner" id="carousel-inner">
-        <!-- Slides will be dynamically injected here -->
+        <!-- Categories will be injected here -->
       </div>
 
-      <!-- Optional Controls -->
+      <!-- Carousel Controls -->
       <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
@@ -86,39 +135,10 @@
       </button>
     </div>
   </div>
-</div>
 
+  <!-- External JS File -->
+  <script type="module" src="../js/renderHomeCategories.js"></script>
 
-<!-- External JS File -->
-<script type="module" src="../js/renderHomeCategories.js"></script>
-      <!-- Animation Keyframes (inline) -->
-      <style>
-        @keyframes slideLeft {
-          0% {
-            transform: translateX(100%);
-          }
-
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      </style>
-
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#jobsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#jobsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- About Start -->
   <div class="container-fluid bg-secondary p-0">
@@ -183,37 +203,7 @@
             </div>
           </div>
         </div>
-        <style>
-          #founderModal .card {
-            transition: box-shadow 0.3s;
-            box-shadow: none;
-            background: #fff !important;
-          }
 
-          #founderModal .card:hover {
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-          }
-
-          #founderModal .modal-content {
-            background: transparent;
-          }
-
-          #founderModal .card * {
-            color: #258f76 !important;
-          }
-
-          #founderModal .card .text-secondary {
-            color: #6c757d !important;
-          }
-
-          #founderModal .card .text-primary {
-            color: #258f76 !important;
-          }
-
-          #founderModal .card-body {
-            padding: 0;
-          }
-        </style>
 
 
       </div>
@@ -264,189 +254,51 @@
   </div>
   <!-- About End -->
 
-
-  <!-- Carousel Section Start -->
-  <div style="margin-top: 70px;"></div>
-  <div id="sagittariusCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <!-- Title -->
-      <div class="text-center mx-auto mb-3" style="max-width: 500px;">
-        <h1 class="display-6 mb-0">Blog</h1>
-        <hr class="w-25 mx-auto bg-primary">
-      </div>
-
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="row align-items-center g-0">
-          <!-- Image -->
-          <div class="col-md-6 d-flex justify-content-center">
-            <img src="../img/blog-1.jpg" alt="Slide 1" style="width: 90%; height: auto; margin-bottom: 10px;" />
-          </div>
-          <!-- Text -->
-          <div class="col-md-6 px-2">
-            <div style="color: rgb(66, 2, 2);">
-              <h3 style="margin-bottom: 8px;"><b>Sagittarius Profiles Pvt Ltd</b></h3>
-              <p style="color: #646161; margin-bottom: 0;">
-                <b>is one of the leading firms affianced in manufacturing, supplying and trading an extensive range of
-                  Colour coated coils, Roofing sheets, Z and C Purlins and all kinds of accessories related to
-                  Pre-fabricated/Pre-Engineered building, rolling shutters, decking sheets and mild steel structural
-                  pipes.</b>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="row align-items-center g-0">
-          <!-- Text -->
-          <div class="col-md-6 px-2">
-            <div style="color: rgb(66, 2, 2);">
-              <h3 style="margin-bottom: 8px;"><b>About Sagittarius</b></h3>
-              <p style="color: #646161; margin-bottom: 0;">
-                <b>We give you the BEST quality products with unbeatable service. Innovation drives everything we do.
-                  Trust us to deliver beyond expectations.</b>
-              </p>
-            </div>
-          </div>
-          <!-- Image -->
-          <div class="col-md-6 d-flex justify-content-center">
-            <img src="../img/blog-2.jpg" alt="Slide 2"
-              style="width: 95%; max-width: 480px; height: auto; margin-bottom: 10px;" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <div class="row align-items-center g-0">
-          <!-- Image -->
-          <div class="col-md-6 d-flex justify-content-center">
-            <img src="../img/blog-3.jpg" alt="Slide 3" style="width: 90%; height: auto; margin-bottom: 10px;" />
-          </div>
-          <!-- Text -->
-          <div class="col-md-6 px-2">
-            <div style="color: rgb(66, 2, 2);">
-              <h3 style="margin-bottom: 8px;"><b>Our Journey</b></h3>
-              <p style="color: #646161; margin-bottom: 0;">
-                <b>We started our journey as a wholesale trading firm for rolling shutter products (TI make), & MS ERW
-                  pipes. Then extended our hands in colour coated roofing sheets. To cater the growing demands of our
-                  patrons we made this accessible in varied specifications and we have installed high-tech machines, &
-                  other requisite facilities at our unit.</b>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 20px; text-align: center;">
-      <a href="#"
-        style="background-color: #152440; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        View More
-      </a>
-    </div>
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#sagittariusCarousel" data-bs-slide="prev"
-      style="width: 5%;">
-      <span class="carousel-control-prev-icon" style="background-color: black;"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#sagittariusCarousel" data-bs-slide="next"
-      style="width: 5%;">
-      <span class="carousel-control-next-icon" style="background-color: black;"></span>
-    </button>
-  </div>
-  <!-- Carousel Section End -->
-
-
-  <!-- Testimonials Start -->
-  <div class="container-fluid py-6 px-5">
-    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-      <h1 class="display-5 mb-0">Testimonials</h1>
+  <!-- Testimonials Carousel Start -->
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold">Testimonials</h2>
       <hr class="w-25 mx-auto bg-primary">
     </div>
-    <!-- Carousel for testimonials -->
+
     <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+      <div class="carousel-inner text-center">
+
         <!-- Testimonial 1 -->
         <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="bg-light rounded p-4 text-center shadow-sm">
-                <img src="../img/team-1.jpg" alt="Client 1" class="rounded-circle mb-3"
-                  style="width:70px; height:70px; object-fit:cover;">
-                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy helped us find the right
-                  talent quickly and efficiently. Highly recommended!"</p>
-                <h5 class="mb-0 fw-bold">Anil Kumar</h5>
-                <span class="text-muted">HR Manager, TechNova Pvt Ltd</span>
-              </div>
-            </div>
-          </div>
+          <img src="../img/team-1.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 1">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Srija Consultancy helped us find the right talent quickly and efficiently. Highly recommended!"
+          </p>
+          <h5 class="fw-bold mb-0">Anil Kumar</h5>
+          <small class="text-muted">HR Manager, TechNova Pvt Ltd</small>
         </div>
+
         <!-- Testimonial 2 -->
         <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="bg-light rounded p-4 text-center shadow-sm">
-                <img src="../img/team-2.jpg" alt="Client 2" class="rounded-circle mb-3"
-                  style="width:70px; height:70px; object-fit:cover;">
-                <p class="mb-3" style="font-size:1.1rem;">"Professional, responsive, and reliable HR
-                  solutions. Our go-to partner for recruitment."</p>
-                <h5 class="mb-0 fw-bold">Priya Desai</h5>
-                <span class="text-muted">Director, Desai Industries</span>
-              </div>
-            </div>
-          </div>
+          <img src="../img/team-2.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 2">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Professional, responsive, and reliable HR solutions. Our go-to partner for recruitment."
+          </p>
+          <h5 class="fw-bold mb-0">Priya Desai</h5>
+          <small class="text-muted">Director, Desai Industries</small>
         </div>
+
         <!-- Testimonial 3 -->
         <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="bg-light rounded p-4 text-center shadow-sm">
-                <img src="../img/team-3.jpg" alt="Client 3" class="rounded-circle mb-3"
-                  style="width:70px; height:70px; object-fit:cover;">
-                <p class="mb-3" style="font-size:1.1rem;">"Their team understood our needs and delivered
-                  beyond expectations. Thank you!"</p>
-                <h5 class="mb-0 fw-bold">Ravi Shetty</h5>
-                <span class="text-muted">Founder, Shetty Logistics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Testimonial 4 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="bg-light rounded p-4 text-center shadow-sm">
-                <img src="../img/team-1.jpg" alt="Client 4" class="rounded-circle mb-3"
-                  style="width:70px; height:70px; object-fit:cover;">
-                <p class="mb-3" style="font-size:1.1rem;">"Excellent support throughout the hiring
-                  process. Will work with them again."</p>
-                <h5 class="mb-0 fw-bold">Sneha Patil</h5>
-                <span class="text-muted">HR Lead, Patil Enterprises</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Testimonial 5 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="bg-light rounded p-4 text-center shadow-sm">
-                <img src="../img/team-2.jpg" alt="Client 5" class="rounded-circle mb-3"
-                  style="width:70px; height:70px; object-fit:cover;">
-                <p class="mb-3" style="font-size:1.1rem;">"Srija Consultancy’s expertise made a real
-                  difference to our business."</p>
-                <h5 class="mb-0 fw-bold">Vikram Joshi</h5>
-                <span class="text-muted">CEO, Joshi AgroTech</span>
-              </div>
-            </div>
-          </div>
+          <img src="../img/team-3.jpg" class="rounded-circle mx-auto d-block mb-4 border border-3 border-primary"
+            style="width: 120px; height: 120px; object-fit: cover;" alt="Client 3">
+          <p class="mx-auto mb-3" style="max-width: 600px; font-size: 1.1rem; color: #555;">
+            "Their team understood our needs and delivered beyond expectations. Thank you!"
+          </p>
+          <h5 class="fw-bold mb-0">Ravi Shetty</h5>
+          <small class="text-muted">Founder, Shetty Logistics</small>
         </div>
       </div>
-      <!-- Carousel controls -->
+
+      <!-- Carousel Controls -->
       <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -457,8 +309,7 @@
       </button>
     </div>
   </div>
-  <!-- Testimonials End -->
-
+  <!-- Testimonials Carousel End -->
   <div id="footer-placeholder"></div>
 
   <!-- Your page content -->
@@ -471,18 +322,6 @@
       });
   </script>
 
-
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <!-- Template Javascript -->
-  <script type="module" src="../js/main.js"></script>
-  </body>
+</body>
 
 </html>
