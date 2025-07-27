@@ -43,27 +43,13 @@
     </div>
     <!-- Topbar End -->
 
-    <div id="header-placeholder"></div>
+     <div id="header-placeholder"></div>
     <script>
-      fetch("candidate_header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-      window.addEventListener("DOMContentLoaded", () => {
-        const name = sessionStorage.getItem("name");
-
-        if (name) {
-          document.getElementById("userName").innerText = name;
-          document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
-        } else {
-          document.getElementById("userName").innerText = "User";
-        }
-
-        document.getElementById("logoutBtn")?.addEventListener("click", () => {
-          sessionStorage.clear();
-        });
-      });
+        fetch('candidate_header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
     </script>
     <div class="container-fluid bg-dark p-5">
         <div class="row">
@@ -107,13 +93,13 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/recruiterFetchBlogs.js"></script>
+     <script type="module" src="../js/recruiter_jobs.js"></script>
   </div>
 </body>
 

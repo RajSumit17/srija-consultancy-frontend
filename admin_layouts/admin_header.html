@@ -1,19 +1,40 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-  <div class="container-fluid">
-    <!-- Logo and title -->
-    <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
-        <img src="../img/logo.jpg" alt="Logo" style="height:100px; width:auto;" class="me-2">
-        <div style="display: flex; flex-direction: column; justify-content: center; height: 100px; padding-top: 10px;">
-            <h1 class="m-0 text-uppercase" style="color: #164259 !important; line-height: 1;">SRIJA CONSULTANCY</h1>
-            <div style="font-size: 19px; color: #2a7160; margin: 0; font-weight: bold; text-align: center; line-height: 1.2;">
-            "We will empower your workforce, <br>so you can empower your business"
-            </div>
-        </div>
-        </div>
-    </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- 👇 Mobile: Centered branding (shown below 768px) -->
+<div class="w-100 d-flex d-md-none flex-column align-items-center text-center">
+  <img src="../img/logo.jpg" alt="Logo"
+       class="mb-2"
+       style="height: 50px; width: auto; object-fit: contain;" />
+  <h1 class="m-0 text-uppercase fw-bold" style="font-size: 1.2rem; color: #164259;">
+    SRIJA CONSULTANCY
+  </h1>
+  <div class="fw-bold" style="font-size: 0.85rem; color: #2a7160;">
+    "We will empower your workforce,<br>so you can empower your business"
+  </div>
+</div>
+
+<!-- 👇 Tablet/Desktop: Left-aligned branding (shown from 768px and up) -->
+<a href="admin_index.html" class="navbar-brand d-none d-md-flex align-items-center p-0">
+  <img src="../img/logo.jpg" alt="Logo"
+       class="me-3"
+       style="height: 80px; width: auto; object-fit: contain;" />
+  <div style="display: flex; flex-direction: column; justify-content: center;">
+    <h1 class="m-0 text-uppercase fw-bold"
+        style="color: #164259 !important; font-size: 2rem; line-height: 1.2;">
+      SRIJA CONSULTANCY
+    </h1>
+    <div class="fw-bold text-wrap"
+         style="font-size: 1rem; color: #2a7160; line-height: 1.4;">
+      "We will empower your workforce,<br>so you can empower your business"
+    </div>
+  </div>
+</a>
+
+
+  <!-- 👇 Toggler Button at Top-Right -->
+  <button class="navbar-toggler position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-toggle="collapse"
+    data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto d-flex align-items-center gap-3 me-3 py-2">
@@ -77,5 +98,4 @@
 
         </ul>
       </div>
-  </div>
 </nav>

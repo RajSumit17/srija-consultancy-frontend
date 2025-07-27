@@ -388,7 +388,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-  </link>
   <body>
     <div id="header-placeholder"></div>
     <script>
@@ -407,9 +406,6 @@
           document.getElementById("userName").innerText = "User";
         }
 
-        document.getElementById("logoutBtn")?.addEventListener("click", () => {
-          sessionStorage.clear();
-        });
       });
     </script>
     <!-- Navbar End -->
@@ -450,5 +446,6 @@
     </script>
 
     <script type="module" src="../js/renderCandidates.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

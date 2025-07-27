@@ -345,7 +345,7 @@
       font-weight: 600;
     }
   </style>
-</link>
+
 
 <body>
   <!-- Topbar Start -->
@@ -370,10 +370,6 @@
       } else {
         document.getElementById("userName").innerText = "User";
       }
-
-      document.getElementById("logoutBtn")?.addEventListener("click", () => {
-        sessionStorage.clear();
-      });
     });
   </script>
 
@@ -431,6 +427,8 @@
       });
   </script>
   <script type="module" src="../js/adminCategory.js"></script>
+   <script type="module" src="../js/main.js"></script>
+
 </body>
 
 </html>
