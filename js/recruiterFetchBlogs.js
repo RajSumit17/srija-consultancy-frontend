@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("addBlogModal")
         );
         modal.hide();
+        renderBlogs();
         // Optional: Reload or re-fetch blog list
       } else {
         throw new Error(data.message || "Failed to add blog");
