@@ -21,7 +21,7 @@ async function fetchCategories() {
   try {
     // https://srija-consultancy-backend.onrender.com
     // http://localhost:8080
-   const res = await fetch("http://localhost:8080/api/jobs/getCategory", {
+   const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getCategory", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
