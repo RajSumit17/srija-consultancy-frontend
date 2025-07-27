@@ -391,23 +391,23 @@
   <body>
     <div id="header-placeholder"></div>
     <script>
-      fetch("admin_header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-      window.addEventListener("DOMContentLoaded", () => {
-        const name = sessionStorage.getItem("name");
-
-        if (name) {
-          document.getElementById("userName").innerText = name;
-          document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
-        } else {
-          document.getElementById("userName").innerText = "User";
-        }
-
+    fetch("admin_header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header-placeholder").innerHTML = data;
       });
-    </script>
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const name = sessionStorage.getItem("name");
+
+      if (name) {
+        document.getElementById("userName").innerText = name;
+        document.getElementById("userDropdownName").innerText = `Hi, ${name}`;
+      } else {
+        document.getElementById("userName").innerText = "User";
+      }
+    });
+  </script>
     <!-- Navbar End -->
     <div class="job-list">
       <div class="list-header">

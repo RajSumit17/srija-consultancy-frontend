@@ -25,7 +25,7 @@ function handleLogout() {
 }
 
 window.handleLogout = handleLogout; // So it's available globally for the HTML `onclick`
-const fetchCurrentUser = () => {
+const  fetchCurrentUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       console.log("User is signed in:", user.email);
