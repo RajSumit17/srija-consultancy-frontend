@@ -30,7 +30,7 @@ onAuthStateChanged(auth, async (user) => {
         const candidateDoc = querySnapshot.docs[0].data();
         const name = candidateDoc.name;
         candidateDetails.name = name;
-        candidateDetails.companyName = companyName;
+        // console.log("Candidate Name:", name);
         candidateDetails.email = user.email;
         candidateDetails.number = candidateDoc.number;
         const nameEl = document.getElementById("userFirstName");

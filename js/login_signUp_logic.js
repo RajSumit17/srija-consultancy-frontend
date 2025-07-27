@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const parentForm = loginBtn.closest("form");
-
+      document.getElementById("loaderOverlay").style.display = "flex";
+      document.querySelector(".auth-container").classList.add("blurred");
       const emailInput = parentForm.querySelector("input[type='email']");
       const passwordInput = parentForm.querySelector("input[type='password']");
 
