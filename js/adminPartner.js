@@ -27,7 +27,7 @@ async function fetchAndRenderRecruiters() {
           <div class="recruiter-details mb-2">
             <p class="mb-1"><i class="fas fa-user text-muted me-2"></i> ${recruiter.contactPersonName}</p>
             <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${recruiter.email}</p>
-            <p class="mb-0"><i class="fas fa-phone text-muted me-2"></i> ${recruiter.jobsRequested?.number || 'N/A'}</p>
+            <p class="mb-0"><i class="fas fa-phone text-muted me-2"></i> ${recruiter.number || 'N/A'}</p>
           </div>
         </div>
       `;
