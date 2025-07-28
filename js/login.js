@@ -1,5 +1,5 @@
 // login.js
-
+import { API_URL,LOCAL_API_URL } from "./URL.js";
 // Import the auth object from firebase-init.js
 import { auth } from "./firebaseInit.js";
 // Import specific auth functions needed
@@ -53,7 +53,7 @@ export async function loginUser(userType,email,password) {
     try {
       const localURL = "http://localhost:8080";
       const renderURL = "https://srija-consultancy-backend.onrender.com";
-      const res = await fetch(`${renderURL}/api/login/${path}`, {
+      const res = await fetch(`${API_URL}/api/login/${path}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

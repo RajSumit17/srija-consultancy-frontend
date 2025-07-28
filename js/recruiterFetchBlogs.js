@@ -12,7 +12,6 @@ const sanitizeImageURL = (url) => {
   }
   return url;
 };
-
 // Format blog created date nicely
 const formatDate = (dateString) => {
   try {
@@ -130,13 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
 
       if (res.ok) {
+        renderBlogs();
         alert("Blog added successfully!");
         blogForm.reset();
         const modal = bootstrap.Modal.getInstance(
           document.getElementById("addBlogModal")
         );
         modal.hide();
-        renderBlogs();
+        
         // Optional: Reload or re-fetch blog list
       } else {
         throw new Error(data.message || "Failed to add blog");

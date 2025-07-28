@@ -1,3 +1,5 @@
+import { Notyf } from "https://cdn.skypack.dev/notyf";
+import { API_URL,LOCAL_API_URL } from "./URL.js";
 const blogListContainer = document.getElementById("blog-list");
 const imageURL = "../img/blog-1.jpg"
 const randomImage =
@@ -12,7 +14,13 @@ const sanitizeImageURL = (url) => {
   }
   return url;
 };
-
+const notyf = new Notyf({
+    duration: 2000, // ⏱ 5 seconds
+    position: {
+      x: "right", // 👉 left | center | right
+      y: "top", // 👆 top | bottom
+    },
+  });
 // Format blog created date nicely
 const formatDate = (dateString) => {
   try {
@@ -31,9 +39,12 @@ const formatDate = (dateString) => {
 
 const renderBlogs = async () => {
   try {
-    const response = await fetch("https://srija-consultancy-backend.onrender.com/api/apply/fetch-blogs");
+    const response = await fetch(`${API_URL}/api/apply/fetch-blogs`);
 
-    if (!response.ok) throw new Error("Failed to fetch blogs");
+    if (!response.ok) {
+      notyf.error("Failed to fetch blogs");
+      throw new Error("Failed to fetch blogs");
+    }
 
     const blogs = await response.json();
     console.log("Fetched blogs:", blogs);
@@ -102,8 +113,10 @@ const renderBlogs = async () => {
       cardWrapper.appendChild(contentRow);
       row.appendChild(cardWrapper);
       blogListContainer.appendChild(row);
+
     });
   } catch (error) {
+    notyf.error("Failed to load blogs");
     console.error("Failed to load blogs:", error);
     blogListContainer.innerHTML =
       '<p class="text-danger">Failed to load blogs.</p>';
@@ -132,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("file", imageFile);
 
     try {
-      const res = await fetch("https://srija-consultancy-backend.onrender.com/api/apply/add-blogs", {
+      const res = await fetch(`${API_URL}/api/apply/add-blogs`, {
         method: "POST",
         body: formData,
       });
@@ -140,7 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Blog added successfully!");
+        // alert("Blog added successfully!");
+        notyf.success("Blog added successfully!");
+        renderBlogs();
         blogForm.reset();
         const modal = bootstrap.Modal.getInstance(
           document.getElementById("addBlogModal")
@@ -156,5 +171,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+const deleteBlog = async (blogId, rowElement) => {
+  // Show modal
+  const modal = document.getElementById("deleteModal");
+  modal.style.display = "flex";
+
+  // Handle confirmation
+  const confirmBtn = document.getElementById("confirmDeleteBtn");
+  const cancelBtn = document.getElementById("cancelDeleteBtn");
+
+  const cleanup = () => {
+    modal.style.display = "none";
+    confirmBtn.onclick = null;
+    cancelBtn.onclick = null;
+  };
+
+  confirmBtn.onclick = async () => {
+    cleanup();
+
+    try {
+      const response = await fetch(`${API_URL}/api/apply/delete-blog`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: blogId }),
+      });
+
+      if (!response.ok) {
+        notyf.error("Failed to delete blog");
+        throw new Error("Failed to delete blog");
+      }
+
+      notyf.success("Blog deleted successfully!");
+      rowElement.remove(); // Remove from DOM
+      renderBlogs();
+    } catch (error) {
+      notyf.error("Error deleting blog");
+      console.error("Error deleting blog:", error);
+    }
+  };
+
+  cancelBtn.onclick = () => {
+    cleanup();
+  };
+};
 
 renderBlogs();
