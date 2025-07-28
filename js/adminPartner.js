@@ -1,6 +1,8 @@
+import { API_URL,LOCAL_API_URL } from "./URL.js";
+
 async function fetchAndRenderRecruiters() {
   try {
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/recruiter/fetchAllRecruiters");
+    const res = await fetch(`${API_URL}/api/recruiter/fetchAllRecruiters`);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch recruiters: ${res.status}`);
