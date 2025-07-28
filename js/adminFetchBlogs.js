@@ -171,24 +171,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-const deleteBlog = async (blogId, rowElement) => {
-  // Show modal
-  const modal = document.getElementById("deleteModal");
-  modal.style.display = "flex";
-
-  // Handle confirmation
+const deleteBlog = (blogId, rowElement) => {
+  const modalElement = document.getElementById("deleteModal");
   const confirmBtn = document.getElementById("confirmDeleteBtn");
   const cancelBtn = document.getElementById("cancelDeleteBtn");
 
-  const cleanup = () => {
-    modal.style.display = "none";
-    confirmBtn.onclick = null;
-    cancelBtn.onclick = null;
-  };
+  // Initialize Bootstrap modal
+  const bootstrapModal = new bootstrap.Modal(modalElement);
 
-  confirmBtn.onclick = async () => {
-    cleanup();
+  // Clean up old listeners
+  const newConfirmBtn = confirmBtn.cloneNode(true);
+  confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
 
+  // Confirm delete handler
+  newConfirmBtn.addEventListener("click", async () => {
     try {
       const response = await fetch(`${API_URL}/api/apply/delete-blog`, {
         method: "DELETE",
@@ -204,17 +200,19 @@ const deleteBlog = async (blogId, rowElement) => {
       }
 
       notyf.success("Blog deleted successfully!");
-      rowElement.remove(); // Remove from DOM
+      rowElement.remove();
       renderBlogs();
     } catch (error) {
       notyf.error("Error deleting blog");
       console.error("Error deleting blog:", error);
+    } finally {
+      bootstrapModal.hide(); // Close the modal
     }
-  };
+  });
 
-  cancelBtn.onclick = () => {
-    cleanup();
-  };
+  // Show the modal
+  bootstrapModal.show();
 };
+
 
 renderBlogs();
