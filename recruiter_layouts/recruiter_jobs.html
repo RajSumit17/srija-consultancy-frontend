@@ -29,6 +29,7 @@
     <script src="../lib/easing/easing.min.js"></script>
     <script src="../lib/waypoints/waypoints.min.js"></script>
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css" />
   <!-- Customized Bootstrap Stylesheet -->
   <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
@@ -368,6 +369,53 @@
 
      
     <div class="row" id="categoryContainer"></div>
+    <!-- 🔽 Edit Job Modal Overlay -->
+<div id="editJobForm" style="display: none; position: fixed; top: 0; left: 0; 
+  width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); 
+  align-items: center; justify-content: center; z-index: 9999;">
+
+  
+  <div class="modal-content bg-white text-black p-4 rounded shadow" style="width: 90%; max-width: 500px;">
+    <h4 class="mb-3">Edit Job Request</h4>
+    
+    <input type="hidden" id="editRequestId" />
+
+    <div class="mb-2">
+      <label for="editTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="editTitle" />
+    </div>
+
+    <div class="mb-2">
+      <label for="editDescription" class="form-label">Description</label>
+      <textarea class="form-control" id="editDescription"></textarea>
+    </div>
+
+    <div class="mb-2">
+      <label for="editVacancy" class="form-label">Vacancy</label>
+      <input type="number" class="form-control" id="editVacancy" />
+    </div>
+
+    <div class="mb-2">
+      <label for="editLocation" class="form-label">Location</label>
+      <input type="text" class="form-control" id="editLocation" />
+    </div>
+
+    <div class="mb-2">
+      <label for="editQualification" class="form-label">Qualification</label>
+      <input type="text" class="form-control" id="editQualification" />
+    </div>
+
+    <div class="mb-3">
+      <label for="editExperience" class="form-label">Experience</label>
+      <input type="text" class="form-control" id="editExperience" />
+    </div>
+
+    <div class="d-flex justify-content-end gap-2">
+      <button class="btn btn-secondary" id="closeEditModalBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+    </div>
+  </div>
+</div>
 
      
     <!-- 🔽 Loader moved here -->
@@ -380,6 +428,74 @@
        
     </div>
   </div>
+  <!-- Custom Delete Confirmation Modal -->
+<!-- Custom Centered Confirmation Dialog -->
+<div id="customConfirmOverlay">
+  <div id="customConfirmBox">
+    <h4>Confirm Delete</h4>
+    <p>Are you sure you want to delete this job sumit?</p>
+    <div class="buttons">
+      <button onclick="cancelDelete()">Cancel</button>
+      <button class="danger" onclick="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+<style>
+  #customConfirmOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#customConfirmBox {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#customConfirmBox h4 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+#customConfirmBox p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+#customConfirmBox .buttons button {
+  padding: 10px 20px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#customConfirmBox .buttons .danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+#customConfirmBox .buttons button:not(.danger) {
+  background-color: #f1f1f1;
+}
+
+</style>
+
 
 
 

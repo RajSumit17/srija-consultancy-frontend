@@ -1,3 +1,4 @@
+//Candidate
 // category.js
 import {LOCAL_API_URL,API_URL} from "./URL.js"
 const params = new URLSearchParams(window.location.search);

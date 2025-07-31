@@ -16,7 +16,7 @@ const fetchJobs = async () => {
   try {
     // http://localhost:8080
     // https://srija-consultancy-backend.onrender.com
-    const res = await fetch(`${API_URL}/jobs/getJobByCategory`, {
+    const res = await fetch(`${API_URL}/api/jobs/getJobByCategory`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -28,57 +28,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!userEmail || !userPassword) {
         alert("Please enter all details");
+        document.getElementById("loaderOverlay").style.display = "none";
+        document.querySelector(".auth-container").classList.remove("blurred");
         return;
       }
 
-      if (userEmail === "sumitraj1533@gmail.com") {
-        const success = await loginUser("admin",userEmail,userPassword);
-        if (success)
-          window.location.replace("../admin_layouts/admin_jobs_new.html");
-      } else if (userType === "candidate") {
-        const success = await loginUser("candidate",userEmail,userPassword);
-        if (success)
-          window.location.replace("../candidate_layouts/candidate_jobs.html");
-      } else {
-        const success = await loginUser("recruiter",userEmail,userPassword);
-        if (success)
-          window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+      try {
+        if (userEmail === "sumitraj1533@gmail.com") {
+          const success = await loginUser("admin", userEmail, userPassword);
+          if (success)
+            window.location.replace("../admin_layouts/admin_jobs_new.html");
+        } else if (userType === "candidate") {
+          const success = await loginUser("candidate", userEmail, userPassword);
+          if (success)
+            window.location.replace("../candidate_layouts/candidate_jobs.html");
+        } else {
+          const success = await loginUser("recruiter", userEmail, userPassword);
+          if (success)
+            window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+      } finally {
+        document.getElementById("loaderOverlay").style.display = "none";
+        document.querySelector(".auth-container").classList.remove("blurred");
       }
     });
   });
-
-  console.log("Login button listeners attached.");
 
   const candidateLoginBtn = document.getElementById("candidateLogin");
   if (candidateLoginBtn) {
     candidateLoginBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      const success = await loginUser("candidate");
-      if (success) {
-        window.location.replace("../candidate_layouts/candidate_jobs.html");
+      document.getElementById("loaderOverlay").style.display = "flex";
+      try {
+        const success = await loginUser("candidate");
+        if (success) {
+          window.location.replace("../candidate_layouts/candidate_jobs.html");
+        }
+      } finally {
+        document.getElementById("loaderOverlay").style.display = "none";
       }
     });
-    console.log("Login button listener attached.");
   } else {
     console.warn(
       "Login button (ID 'loginBtn') not found. Is your HTML correct?"
     );
+    document.getElementById("loaderOverlay").style.display = "none";
   }
 
   const recruiterLoginBtn = document.getElementById("recruiterLogin");
   if (recruiterLoginBtn) {
     recruiterLoginBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      const success = await loginUser("recruiter");
-      if (success) {
-        window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+      document.getElementById("loaderOverlay").style.display = "flex";
+      try {
+        const success = await loginUser("recruiter");
+        if (success) {
+          window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+        }
+      } finally {
+        document.getElementById("loaderOverlay").style.display = "none";
       }
     });
-    console.log("Login button listener attached.");
   } else {
     console.warn(
       "Login button (ID 'loginBtn') not found. Is your HTML correct?"
     );
+    document.getElementById("loaderOverlay").style.display = "none";
   }
 
   // --- Signup Form Event Listener (if you have one in the same HTML) ---
@@ -86,24 +103,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (candidateSignupBtn) {
     candidateSignupBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      const success = await signupCandidate();
-      if (success)
-        window.location.replace("../candidate_layouts/candidate_jobs.html");
+      document.getElementById("loaderOverlay").style.display = "flex";
+      try {
+        const success = await signupCandidate();
+        if (success)
+          window.location.replace("../candidate_layouts/candidate_jobs.html");
+      } finally {
+        document.getElementById("loaderOverlay").style.display = "none";
+      }
     });
     console.log("Signup button listener attached.");
-  } else {
-    // console.warn("Signup button (ID 'signupBtn') not found. If you have a separate signup page, ignore this warning.");
   }
+
   const recruiterSignupBtn = document.getElementById("recruiterSignupBtn");
   if (recruiterSignupBtn) {
     recruiterSignupBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      const success = await signupRecruiter();
-      if (success)
-        window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+      document.getElementById("loaderOverlay").style.display = "flex";
+      try {
+        const success = await signupRecruiter();
+        if (success)
+          window.location.replace("../recruiter_layouts/recruiter_jobs.html");
+      } finally {
+        document.getElementById("loaderOverlay").style.display = "none";
+      }
     });
     console.log("Signup button listener attached.");
-  } else {
-    // console.warn("Signup button (ID 'signupBtn') not found. If you have a separate signup page, ignore this warning.");
   }
 });

@@ -8,6 +8,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { auth } from "./firebaseInit.js";
+import { LOCAL_API_URL, API_URL } from "../js/URL.js";
+import { Notyf } from "https://cdn.skypack.dev/notyf";
+const notyf = new Notyf({
+    duration: 2000, // ⏱ 5 seconds
+    position: {
+      x: "right", // 👉 left | center | right
+      y: "top", // 👆 top | bottom
+    },
+  });
 let recruiterEmail;
 const db = getFirestore();
 const partnerDetails = {
@@ -117,14 +126,11 @@ const jobSearchForm = document.getElementById("jobSearchForm");
 async function fetchRequestedJobs() {
   console.log("Fetching jobs for recruiter:", recruiterEmail);
   try {
-    const response = await fetch(
-      `https://srija-consultancy-backend.onrender.com/api/recruiter/getJobsPosted`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: recruiterEmail }),
-      }
-    );
+    const response = await fetch(`${API_URL}/api/recruiter/getJobsPosted`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: recruiterEmail }),
+    });
     console.log("fetched the jobs requested");
     const fetchedJobs = await response.json();
     console.log("Fetched Jobs:", fetchedJobs);
@@ -211,13 +217,13 @@ function renderJobs(jobs) {
       .querySelector(".delete-btn")
       .addEventListener("click", async function () {
         const btn = this;
-        if (confirm("Are you sure you want to delete this job request?")) {
+       
           btn.disabled = true;
           btn.textContent = "Deleting...";
-          await deleteJob(job.requestId);
+          await showDeleteConfirmation(job.id);
           btn.disabled = false;
           btn.textContent = "Delete";
-        }
+        
       });
 
     jobListContainer.appendChild(jobCard);
@@ -225,7 +231,7 @@ function renderJobs(jobs) {
 }
 
 function openEditModal(job) {
-  document.getElementById("editRequestId").value = job.requestId;
+  document.getElementById("editRequestId").value = job.id;
   document.getElementById("editTitle").value = job.jobTitle;
   document.getElementById("editDescription").value = job.description;
   document.getElementById("editVacancy").value = job.vacancy;
@@ -233,23 +239,23 @@ function openEditModal(job) {
   document.getElementById("editQualification").value = job.qualification;
   document.getElementById("editExperience").value = job.experience;
 
-  document.getElementById("editJobModalOverlay").style.display = "flex";
+  document.getElementById("editJobForm").style.display = "flex";
   document.body.style.overflow = "hidden";
 }
+document.getElementById("closeEditModalBtn").addEventListener("click", () => {
+    document.getElementById("editJobForm").style.display = "none";
+    document.body.style.overflow = "";
+  });
 
-function closeEditModal() {
-  document.getElementById("editJobForm").reset();
-  document.getElementById("editJobModalOverlay").style.display = "none";
-  document.body.style.overflow = "";
-}
-document.getElementById("editJobForm").addEventListener("submit", async (e) => {
+document.getElementById("saveEditBtn").addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const updateBtn = e.submitter;
+  const updateBtn = e.target;
   updateBtn.disabled = true;
-  updateBtn.textContent = "Updating...";
+  updateBtn.textContent = "Saving...";
 
   const jobId = document.getElementById("editRequestId").value;
+
   const updatedData = {
     jobTitle: document.getElementById("editTitle").value.trim(),
     description: document.getElementById("editDescription").value.trim(),
@@ -258,14 +264,29 @@ document.getElementById("editJobForm").addEventListener("submit", async (e) => {
     experience: document.getElementById("editExperience").value.trim(),
     location: document.getElementById("editLocation").value.trim(),
   };
-  console.log(updatedData.jobTitle);
 
-  await updateJob(jobId, updatedData);
+  console.log("Updated Job Data:", updatedData);
+
+  try {
+    await updateJob(jobId, updatedData);
+
+    // Close modal after successful update
+    document.getElementById("editJobForm").style.display = "none";
+    document.body.style.overflow = "";
+  } catch (error) {
+    console.error("Error updating job:", error);
+    alert("Failed to update job. Please try again.");
+  }
 
   updateBtn.disabled = false;
-  updateBtn.textContent = "Update";
-  closeEditModal();
+  updateBtn.textContent = "Save Changes";
+  document.getElementById("closeEditModalBtn").addEventListener("click", () => {
+  document.getElementById("editJobForm").style.display = "none";
+  document.body.style.overflow = "";
 });
+
+});
+
 
 // ✅ Update job
 async function updateJob(jobId, updatedData) {
@@ -273,49 +294,65 @@ async function updateJob(jobId, updatedData) {
     const email = recruiterEmail;
     console.log(jobId, email);
     const response = await fetch(
-      `https://srija-consultancy-backend.onrender.com/api/recruiter/updateJob`,
+      `${API_URL}/api/recruiter/updateJob`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           jobId,
           updatedData,
-          email,
         }),
       }
     );
 
     if (response.ok) {
+      notyf.success("Job updated successfully!");
       fetchRequestedJobs();
     } else {
-      alert("Failed to update job.");
+      notyf.error("Failed to update job.");
     }
   } catch (err) {
+    notyf.error("Error updating job. Please try again.");
     console.error("Error updating job:", err);
   }
 }
+let jobIdToDelete = null;
 
-// ✅ Delete job
-async function deleteJob(jobId) {
+window.showDeleteConfirmation = function(jobId) {
+  jobIdToDelete = jobId;
+  document.getElementById("customConfirmOverlay").style.display = "flex";
+};
+
+window.cancelDelete = function() {
+  jobIdToDelete = null;
+  document.getElementById("customConfirmOverlay").style.display = "none";
+};
+
+window.confirmDelete = async function() {
+  if (!jobIdToDelete) return;
+
   try {
-    const response = await fetch(
-      `https://srija-consultancy-backend.onrender.com/api/recruiter/deleteJob`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: recruiterEmail, requestId: jobId }),
-      }
-    );
+    const response = await fetch(`${API_URL}/api/recruiter/deleteJob`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ jobId: jobIdToDelete }),
+    });
 
     if (response.ok) {
+      notyf.success("Job deleted successfully!");
       fetchRequestedJobs();
     } else {
-      alert("Failed to delete job.");
+      notyf.error("Failed to delete job.");
     }
   } catch (err) {
     console.error("Error deleting job:", err);
+    notyf.error("Error deleting job. Please try again.");
+  } finally {
+    jobIdToDelete = null;
+    document.getElementById("customConfirmOverlay").style.display = "none";
   }
-}
+};
+
 
 // ✅ Improved Search Functionality (local filter, no extra API call)
 jobSearchForm.addEventListener("submit", (e) => {

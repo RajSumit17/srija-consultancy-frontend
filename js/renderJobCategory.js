@@ -1,3 +1,4 @@
+//candidate
 const categoryContainer = document.getElementById("categoryContainer");
 const categorySearchInput = document.getElementById("categorySearchInput");
 const loader = document.getElementById("loader");
@@ -57,11 +58,6 @@ const renderCategories = (categories) => {
 
     const cardCol = document.createElement("div");
     cardCol.className = "col-md-3 mb-4";
-    // cardCol.setAttribute("data-category", category.name);
-
-    // Allow card to shrink/grow naturally
-    // cardCol.style.flex = "0 1 auto";
-    // cardCol.style.marginBottom = "15px";
 
     cardCol.innerHTML = `
       
