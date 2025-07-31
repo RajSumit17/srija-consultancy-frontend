@@ -50,7 +50,7 @@ onAuthStateChanged(auth, async (user) => {
         candidateDetails.number = candidateDoc.number;
         const nameEl = document.getElementById("userFirstName");
         const headerEl = document.getElementById("dropdownHeader");
-        recruiterEmail = user.email; // Store the email for later use
+        //recruiterEmail = user.email; // Store the email for later use
         if (nameEl) nameEl.innerText = name;
         if (headerEl) {
           headerEl.innerHTML = `
