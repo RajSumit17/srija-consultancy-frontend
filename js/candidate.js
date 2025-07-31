@@ -42,7 +42,6 @@ onAuthStateChanged(auth, async (user) => {
       Welcome, ${name}
       <br><span class="text-muted fw-normal" style="font-size: 0.85rem">Candidate</span>
     `;
-          fetchRequestedJobs();
         }
       } else {
         console.warn("No candidate found with email:", user.email);

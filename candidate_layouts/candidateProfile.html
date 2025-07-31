@@ -367,64 +367,10 @@
                 document.getElementById('header-placeholder').innerHTML = data;
             });
     </script>
+  <!-- Candidate Profile Placeholder -->
+<div id="candidate-profile" class="container py-5"></div>
 
 
-  <div class="container mt-4">
-    <h1 id="categoryHeading" class="text-center mb-4">Category Jobs</h1>
-    <div class="job-list"></div>
-  </div>
-  <!-- Delete Confirmation Modal -->
-  <div id="deleteConfirmModal" class="modal-overlay" style="display: none;">
-    <div class="modal-box text-center">
-      <p class="mb-4 fs-5">Are you sure you want to delete this job?</p>
-      <button id="confirmDeleteBtn" class="btn btn-danger me-3">Yes, Delete</button>
-      <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
-    </div>
-  </div>
-<style>
-  #loaderOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-
-<div id="loaderOverlay">
-  <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
-
-
-  <style>
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .modal-box {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      min-width: 300px;
-    }
-  </style>
 
   <!-- Job Postings End -->
 
@@ -440,7 +386,8 @@
             });
     </script>
   <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/candidateCategory.js"></script>
+  <!-- <script type="module" src="../js/candidateCategory.js"></script> -->
+  <script type="module" src="../js/candidateProfile.js"></script>
    <!-- <script type="module" src="../js/candidate.js"></script> -->
 </body>
 

@@ -12,28 +12,35 @@ async function fetchAndRenderRecruiters() {
     const recruiters = data.recruiters;
 
     const container = document.getElementById("recruiterListContainer");
-    container.innerHTML = ""; // Clear existing content
+container.innerHTML = ""; // Clear existing content
 
-    recruiters.forEach((recruiter) => {
-      const card = document.createElement("div");
-      card.className = "job-card";
+// Create a row to hold the cards
+const row = document.createElement("div");
+row.className = "row";
 
-      card.innerHTML = `
-        <div class="recruiter-card p-4 rounded shadow-sm border bg-white mb-4">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="fw-bold text-primary mb-0">${recruiter.companyName}</h5>
-          </div>
+recruiters.forEach((recruiter) => {
+  const col = document.createElement("div");
+  col.className = "col-md-6 col-lg-4 mb-4"; // Responsive: 2 per row (md), 3 per row (lg)
 
-          <div class="recruiter-details mb-2">
-            <p class="mb-1"><i class="fas fa-user text-muted me-2"></i> ${recruiter.contactPersonName}</p>
-            <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${recruiter.email}</p>
-            <p class="mb-0"><i class="fas fa-phone text-muted me-2"></i> ${recruiter.number || 'N/A'}</p>
-          </div>
-        </div>
-      `;
+  col.innerHTML = `
+    <div class="recruiter-card p-4 rounded shadow-sm border bg-white h-100">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold text-primary mb-0">${recruiter.companyName}</h5>
+      </div>
 
-      container.appendChild(card);
-    });
+      <div class="recruiter-details mb-2">
+        <p class="mb-1"><i class="fas fa-user text-muted me-2"></i> ${recruiter.contactPersonName}</p>
+        <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${recruiter.email}</p>
+        <p class="mb-0"><i class="fas fa-phone text-muted me-2"></i> ${recruiter.number || 'N/A'}</p>
+      </div>
+    </div>
+  `;
+
+  row.appendChild(col);
+});
+
+container.appendChild(row);
+
   } catch (error) {
     console.error("Error fetching recruiters:", error.message);
     const container = document.getElementById("recruiterListContainer");
