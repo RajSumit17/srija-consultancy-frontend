@@ -88,7 +88,7 @@ const renderBlogs = async () => {
       imageCol.innerHTML = `
     <div class="img_container d-flex justify-content-center">
       <div class="img-box" style="width: 80%; max-width: 500px;">
-        <img src="${imageURL}" alt="Blog Image" style="width: 100%; height: auto; border-radius: 8px;">
+        <img src="${blog.imageURL}" alt="Blog Image" style="width: 100%; height: auto; border-radius: 8px;">
       </div>
     </div>`;
 
@@ -127,9 +127,11 @@ const renderBlogs = async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const blogForm = document.getElementById("blogForm");
-
+  const submitBtn = document.getElementById("submitBlogBtn");
   blogForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    submitBtn.disabled = true; // Disable button to prevent multiple submissions
+    submitBtn.innerHTML = "Submitting..."; // Change button text
 
     const title = document.getElementById("blogTitle").value.trim();
     const description = document.getElementById("blogDescription").value.trim();
@@ -168,6 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.error("Error adding blog:", err.message);
       alert("Error adding blog.");
+    }finally{
+       submitBtn.disabled = true; // Disable button to prevent multiple submissions
+    submitBtn.innerHTML = "Submitting..."; // Change button text
+
     }
   });
 });

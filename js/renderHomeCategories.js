@@ -95,7 +95,7 @@ function generateCard(category) {
 
   return `
     <div class="col d-flex justify-content-center">
-      <a href="jobs.html?category=${encodeURIComponent(category.name)}" style="text-decoration: none; width: 100%;">
+      
         <div class="card text-center h-100 border-0 shadow-sm"
              style="background-color: #ffffff; color: #258f76; border-radius: 12px; max-width: 240px;">
           <div class="card-body d-flex flex-column justify-content-center align-items-center p-3">
@@ -114,3 +114,4 @@ function generateCard(category) {
 
 
 fetchCategories();
+// <a href="jobs.html?category=${encodeURIComponent(category.name)}" style="text-decoration: none; width: 100%;">
