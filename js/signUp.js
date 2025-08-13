@@ -45,41 +45,52 @@ export async function signupCandidate() {
       password
     );
     console.log("Firebase user created:", userCredential.user.email);
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("number", number);
     formData.append("education", education);
     formData.append("resume", resume);
+
     const localURL = "http://localhost:8080";
-    const renderURL = "https://srija-consultancy-backend.onrender.com";
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/signup/candidate", {
+    const renderURL = "https://srija-consultancy-backend-llao.onrender.com";
+
+    const res = await fetch(`${renderURL}/api/signup/candidate`, {
       method: "POST",
       body: formData,
     });
 
     if (!res.ok) {
-      notyf.error("Something went wrong");
+      // Rollback user in Firebase Auth
+      await userCredential.user.delete();
+      console.warn("Backend signup failed, Firebase user deleted");
+      notyf.error("Something went wrong, please try again");
       return false;
     }
 
     notyf.success("Registration successful! Welcome " + name);
 
-    // Optional: Get ID token immediately if you need to send it to your backend after signup
     const idToken = await userCredential.user.getIdToken();
     console.log("ID Token after signup:", idToken);
     return true;
   } catch (error) {
     console.error("Signup failed:", error);
+
+    // Rollback if user exists in Auth
+    if (auth.currentUser) {
+      await auth.currentUser.delete();
+      console.warn("User deleted due to signup error");
+    }
+
     notyf.error(error.message);
     return false;
   }
 }
-
 // recruiter signUp code
 
 export const signupRecruiter = async () => {
-   const notyf = new Notyf({
+  const notyf = new Notyf({
     duration: 2000, // ⏱ 5 seconds
     position: {
       x: "right", // 👉 left | center | right
@@ -87,13 +98,24 @@ export const signupRecruiter = async () => {
     },
   });
   const companyName = document.getElementById("recruiter-signup-company").value;
-  const contactPersonName = document.getElementById("recruiter-signup-contact").value;
+  const contactPersonName = document.getElementById(
+    "recruiter-signup-contact"
+  ).value;
   const email = document.getElementById("recruiter-signup-email").value;
   const number = document.getElementById("recruiter-signup-phone").value;
   const password = document.getElementById("recruiter-signup-password").value;
-  const cnfPassword = document.getElementById("recruiter-signup-confirm-password").value;
+  const cnfPassword = document.getElementById(
+    "recruiter-signup-confirm-password"
+  ).value;
 
-  if (!companyName || !contactPersonName || !email || !number || !password || !cnfPassword) {
+  if (
+    !companyName ||
+    !contactPersonName ||
+    !email ||
+    !number ||
+    !password ||
+    !cnfPassword
+  ) {
     notyf.error("Please fill all the details");
     return;
   }
@@ -104,7 +126,11 @@ export const signupRecruiter = async () => {
   }
 
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     console.log("Firebase user created:", userCredential.user.email);
 
     const formData = new FormData();
@@ -112,13 +138,21 @@ export const signupRecruiter = async () => {
     formData.append("contactPersonName", contactPersonName);
     formData.append("email", email);
     formData.append("number", number);
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/signup/recruiter", {
-      method: "POST",
-      body: formData,
-    });
+
+    const res = await fetch(
+      "https://srija-consultancy-backend-llao.onrender.com/api/signup/recruiter",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     const resData = await res.json();
+
     if (!res.ok) {
+      // Rollback Firebase Auth user if backend fails
+      await userCredential.user.delete();
+      console.warn("Backend signup failed, Firebase user deleted");
       notyf.error(resData.message || "Something went wrong");
       return false;
     }
@@ -126,6 +160,14 @@ export const signupRecruiter = async () => {
     notyf.success("Registration successful! Welcome " + companyName);
     return true;
   } catch (error) {
+    console.error("Signup failed:", error);
+
+    // Rollback if user exists in Auth
+    if (auth.currentUser) {
+      await auth.currentUser.delete();
+      console.warn("User deleted due to signup error");
+    }
+
     notyf.error(error.message);
     return false;
   }

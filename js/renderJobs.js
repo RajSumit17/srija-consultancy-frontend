@@ -43,7 +43,7 @@ const form = document.getElementById("addJobForm");
 // Fetch and render all jobs
 async function fetchAndRenderJobs() {
    const localURL = "http://localhost:8080"
-      const renderURL = "https://srija-consultancy-backend.onrender.com"
+      const renderURL = "https://srija-consultancy-backend-llao.onrender.com"
   const res = await fetch(`${renderURL}/api/jobs/getAllJobs`);
   const data = await res.json(); // data = { jobs: [...] }
   const jobs = data.jobs; // extract the array
@@ -89,7 +89,7 @@ async function fetchAndRenderJobs() {
       if (!confirmed) return;
 
       try {
-        const res = await fetch(`https://srija-consultancy-backend.onrender.com/api/jobs/deleteJob`, {
+        const res = await fetch(`https://srija-consultancy-backend-llao.onrender.com/api/jobs/deleteJob`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -172,7 +172,7 @@ form.addEventListener("submit", async (e) => {
 
   // Send job to backend
   const localURL = "http://localhost:8080"
-      const renderURL = "https://srija-consultancy-backend.onrender.com"
+      const renderURL = "https://srija-consultancy-backend-llao.onrender.com"
   const res = await fetch(`${renderURL}/api/jobs/add-job`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

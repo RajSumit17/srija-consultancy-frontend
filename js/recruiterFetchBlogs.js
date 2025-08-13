@@ -30,7 +30,7 @@ const formatDate = (dateString) => {
 
 const renderBlogs = async () => {
   try {
-    const response = await fetch("https://srija-consultancy-backend.onrender.com/api/apply/fetch-blogs");
+    const response = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/apply/fetch-blogs");
 
     if (!response.ok) throw new Error("Failed to fetch blogs");
 
@@ -67,7 +67,7 @@ const renderBlogs = async () => {
       imageCol.innerHTML = `
     <div class="img_container d-flex justify-content-center">
       <div class="img-box" style="width: 80%; max-width: 500px;">
-        <img src="${imageURL}" alt="Blog Image" style="width: 100%; height: auto; border-radius: 8px;">
+        <img src="${blog.imageURL}" alt="Blog Image" style="width: 100%; height: auto; border-radius: 8px;">
       </div>
     </div>`;
 
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("file", imageFile);
 
     try {
-      const res = await fetch("https://srija-consultancy-backend.onrender.com/api/apply/add-blogs", {
+      const res = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/apply/add-blogs", {
         method: "POST",
         body: formData,
       });

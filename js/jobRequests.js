@@ -165,7 +165,7 @@ const approveJob = async () => {
   button.innerText = "Processing...";
 
   try {
-    const response = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/addJob", {
+    const response = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/jobs/addJob", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const fetchJobRequested = async () => {
   try {
     const resp = await fetch(
-      "https://srija-consultancy-backend.onrender.com/api/apply/getJobsRequested"
+      "https://srija-consultancy-backend-llao.onrender.com/api/apply/getJobsRequested"
     );
     const data = await resp.json();
     console.log(data);

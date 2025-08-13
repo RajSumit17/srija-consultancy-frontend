@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        if (userEmail === "sumitraj1533@gmail.com") {
+        if (userEmail === "admin@srijaconsultancy.in") {
           const success = await loginUser("admin", userEmail, userPassword);
           if (success)
             window.location.replace("../admin_layouts/admin_jobs_new.html");

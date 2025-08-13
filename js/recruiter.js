@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://srija-consultancy-backend.onrender.com/api/recruiter/requestJobPosting",
+        "https://srija-consultancy-backend-llao.onrender.com/api/recruiter/requestJobPosting",
         {
           method: "POST",
           headers: {

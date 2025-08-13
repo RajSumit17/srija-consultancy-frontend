@@ -37,7 +37,7 @@ const fetchCurrentUser = () => {
 fetchCurrentUser();
 async function fetchAndRenderCandidates() {
   try {
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/candidate/fetchAllCandidates");
+    const res = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/candidate/fetchAllCandidates");
 
     if (!res.ok) {
       throw new Error(`Failed to fetch candidates: ${res.status}`);

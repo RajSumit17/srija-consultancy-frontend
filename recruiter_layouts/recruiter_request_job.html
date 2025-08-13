@@ -119,7 +119,7 @@
     const categorySelect = document.getElementById("category");
 
     try {
-      const response = await fetch(`https://srija-consultancy-backend.onrender.com/api/jobs/getCategory`); // Update to your actual API endpoint
+      const response = await fetch(`https://srija-consultancy-backend-llao.onrender.com/api/jobs/getCategory`); // Update to your actual API endpoint
       const data = await response.json();
       const categories = data.categories || [];
 

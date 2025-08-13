@@ -27,7 +27,7 @@ const fetchCategories = async () => {
     categoryContainer.innerHTML = ""; // Clear previous content
     // http://localhost:8080
     // https://srija-consultancy-backend.onrender.com
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getCategory", {
+    const res = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/jobs/getCategory", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

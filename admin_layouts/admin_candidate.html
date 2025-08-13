@@ -398,7 +398,7 @@
       document
         .getElementById("downloadExcelBtn")
         .addEventListener("click", () => {
-          fetch("https://srija-consultancy-backend.onrender.com/api/candidate/getCandidateInCSV")
+          fetch("https://srija-consultancy-backend-llao.onrender.com/api/candidate/getCandidateInCSV")
             .then((response) => {
               if (!response.ok) {
                 throw new Error("Failed to download Excel file");

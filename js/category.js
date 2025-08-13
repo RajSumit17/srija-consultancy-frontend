@@ -6,7 +6,7 @@ document.querySelector("h1").textContent = `${category}`;
 
 const fetchJobs = async () => {
   try {
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/getJobByCategory",{
+    const res = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/jobs/getJobByCategory",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

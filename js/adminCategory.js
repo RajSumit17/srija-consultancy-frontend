@@ -131,7 +131,7 @@ document
 
     try {
       const res = await fetch(
-        "https://srija-consultancy-backend.onrender.com/api/jobs/deleteJob",
+        "https://srija-consultancy-backend-llao.onrender.com/api/jobs/deleteJob",
         {
           method: "DELETE",
           headers: {

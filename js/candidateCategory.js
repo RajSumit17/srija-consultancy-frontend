@@ -172,77 +172,7 @@ const showInterest = async (jobId, jobCategory) => {
   }
 };
 
-// const renderCandidateProfile = () =>{
-//   const {
-//     name,
-//     email,
-//     number,
-//     jobs,
-//     resume,
-//     education
-//   } = candidateDetails;
 
-//   const profileHTML = `
-//     <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 750px;">
-//       <!-- Header with icon -->
-//       <div class="card-header bg-primary text-white text-center rounded-top-4 position-relative py-4">
-//         <div class="profile-pic bg-white text-primary rounded-circle border border-3 border-white d-flex align-items-center justify-content-center mx-auto mb-2"
-//              style="width: 90px; height: 90px; font-size: 40px;">
-//           <i class="fas fa-user"></i>
-//         </div>
-//         <h3 class="mb-0">${name || "N/A"}</h3>
-//         <small>${education || "Not specified"}</small>
-//       </div>
-
-//       <!-- Body -->
-//       <div class="card-body px-4 py-4">
-//         <div class="row mb-3">
-//           <div class="col-md-6">
-//             <strong>Email:</strong>
-//             <p class="text-muted mb-0">${email || "N/A"}</p>
-//           </div>
-//           <div class="col-md-6">
-//             <strong>Contact:</strong>
-//             <p class="text-muted mb-0">${number || "N/A"}</p>
-//           </div>
-//         </div>
-
-//         <div class="mb-3">
-//           <strong>Interested Jobs:</strong>
-//           <div class="border rounded p-3 bg-light" style="max-height: 150px; overflow-y: auto;">
-//             <ul class="mb-0 ps-3 small text-dark">
-//               ${jobs && jobs.length > 0
-//                 ? jobs.map(job => `<li>${job}</li>`).join("")
-//                 : "<li>No jobs listed</li>"}
-//             </ul>
-//           </div>
-//         </div>
-
-//         <div class="mb-3">
-//           <strong>Resume:</strong><br />
-//           ${
-//             resume
-//               ? `<a href="${resume}" target="_blank" class="btn btn-outline-primary btn-sm mt-2">
-//                   <i class="fas fa-file-alt me-1"></i> View Resume
-//                  </a>`
-//               : "<p class='text-muted mt-2'>Not uploaded</p>"
-//           }
-//         </div>
-//       </div>
-
-//       <!-- Footer -->
-//       <div class="card-footer text-end bg-white border-0">
-//         <button class="btn btn-secondary d-print-none" onclick=${closeProfile}>Close</button>
-//       </div>
-//     </div>
-//   `;
-
-//   document.getElementById("candidate-profile").innerHTML = profileHTML;
-// }
-// function closeProfile() {
-//   document.getElementById("candidate-profile").innerHTML = "";
-// }
-// Store delete data temporarily
 let deleteJobData = { uniqueId: null, category: null, cardElement: null };
 
 const showDeleteDialog = (uniqueId, category, cardElement) => {
@@ -255,7 +185,7 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", async () =
   document.getElementById("deleteConfirmModal").style.display = "none";
 
   try {
-    const res = await fetch("https://srija-consultancy-backend.onrender.com/api/jobs/deleteJob", {
+    const res = await fetch("https://srija-consultancy-backend-llao.onrender.com/api/jobs/deleteJob", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
