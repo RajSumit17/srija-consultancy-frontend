@@ -76,7 +76,7 @@ function handleLogout() {
       });
 
       // Redirect to login/home page
-       window.location.replace("../index.html");
+       window.location.replace("/index.html");
     })
     .catch((error) => {
       console.error("Error signing out:", error);
@@ -85,31 +85,66 @@ function handleLogout() {
 
 window.handleLogout = handleLogout; // So it's available globally for the HTML `onclick`
 const fetchCurrentUser = () => {
+  // Wait for DOM to be ready before checking authentication
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuthentication();
+    });
+  } else {
+    checkAuthentication();
+  }
+};
+
+const checkAuthentication = () => {
   // Get current page path to check if authentication is required
   const currentPath = window.location.pathname;
+  const currentPage = currentPath.split('/').pop(); // Get just the filename
+  
+  console.log("Current path:", currentPath);
+  console.log("Current page:", currentPage);
+  
   const publicPages = [
-    '/index.html',
-    '/contact.html', 
-    '/about.html',
-    '/jobs.html',
-    '/blog.html',
-    '/feature.html',
-    '/testimonial.html'
+    'index.html',
+    'contact.html', 
+    'about.html',
+    'jobs.html',
+    'blog.html',
+    'feature.html',
+    'testimonial.html'
   ];
   
-  // Check if current page is a public page
-  const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
+  // Check if current page is a public page - more flexible matching
+  const isPublicPage = publicPages.includes(currentPage) || 
+                      currentPath === '/' || 
+                      currentPath === '/index.html' ||
+                      currentPath.includes('contact.html') ||
+                      currentPath.includes('about.html') ||
+                      currentPath.includes('jobs.html') ||
+                      currentPath.includes('blog.html') ||
+                      currentPath.includes('feature.html') ||
+                      currentPath.includes('testimonial.html') ||
+                      currentPage === '' || // Handle root path
+                      currentPage === null; // Handle edge cases
   
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("User is signed in:", user.email);
-    } else {
-      console.log("No user is signed in");
-      // Only redirect if this is not a public page
-      if (!isPublicPage) {
-        window.location.replace("../index.html");
+  console.log("Is public page:", isPublicPage);
+  
+  // Add a small delay to ensure Firebase auth is initialized
+  setTimeout(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("User is signed in:", user.email);
+      } else {
+        console.log("No user is signed in");
+        // Only redirect if this is not a public page
+        if (!isPublicPage) {
+          console.log("Redirecting to index.html - page requires authentication");
+          // Use absolute path to avoid relative path issues
+          window.location.replace("/index.html");
+        } else {
+          console.log("Allowing access to public page");
+        }
       }
-    }
-  });
+    });
+  }, 500); // 500ms delay to ensure Firebase is ready
 };
 fetchCurrentUser()
