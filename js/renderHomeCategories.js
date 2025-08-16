@@ -34,8 +34,16 @@ async function fetchCategories() {
   }
 }
 
-// Calculate dynamic items per slide based on total categories
+// Calculate dynamic items per slide based on total categories and screen size
 function getItemsPerSlide(totalCategories) {
+  const width = window.innerWidth;
+  console.log(width);
+  // For mobile screens (width < 768px), always show 1 card per row
+  if (width < 768) {
+    return 1;
+  }
+  
+  // For larger screens, use dynamic calculation
   let maxPerRow = 5;
   let best = 1;
   let minRemainder = totalCategories; // worst case all leftover
