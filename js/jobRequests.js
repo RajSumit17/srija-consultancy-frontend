@@ -71,78 +71,68 @@ const renderJobRequests = (requests) => {
     }
 
     card.innerHTML = `
-  <div class="card-body">
-    <div class="d-flex justify-content-between align-items-start flex-wrap">
+  <div class="card-body p-4">
+    <!-- Job Header -->
+    <div class="d-flex justify-content-between align-items-start flex-wrap mb-3">
       <div>
-        <h4 class="text-primary mb-2">${job.jobTitle}</h4>
-        <p class="mb-1">
-          <i class="bi bi-tags text-muted me-1"></i>
-          <strong>Category:</strong> ${job.category || "N/A"}
-        </p>
-        <p class="mb-1">
-          <i class="bi bi-geo-alt text-muted me-1"></i>
-          <strong>Location:</strong> ${job.location}
-        </p>
-        <p class="mb-1">
-          <i class="bi bi-person-lines-fill text-muted me-1"></i>
-          <strong>Experience:</strong> ${job.experience}
-        </p>
-        <p class="mb-1">
-          <i class="bi bi-mortarboard text-muted me-1"></i>
-          <strong>Qualification:</strong> ${job.qualification}
-        </p>
-        <p class="mb-1">
-          <i class="bi bi-card-text text-muted me-1"></i>
-          <strong>Description:</strong> ${job.description}
-        </p>
-        <p class="mb-3">
-          <i class="bi bi-people text-muted me-1"></i>
-          <strong>Vacancy:</strong> ${job.vacancy}
-        </p>
+        <h4 class="fw-bold text-primary mb-2">${job.jobTitle}</h4>
+        <div class="text-muted small">
+          <span class="me-3"><i class="bi bi-tags me-1"></i> ${job.category || "N/A"}</span>
+          <span class="me-3"><i class="bi bi-geo-alt me-1"></i> ${job.location}</span>
+          <span><i class="bi bi-people me-1"></i> ${job.vacancy} Vacancy</span>
+        </div>
       </div>
       <div class="text-end">
         <span class="badge ${
           job.status.toLowerCase() === "approved"
             ? "bg-success"
             : "bg-warning text-dark"
-        } px-3 py-2 mb-2">
-  ${job.status.toUpperCase()}
-</span><br>
+        } px-3 py-2 mb-2">${job.status.toUpperCase()}</span><br>
+        <small class="text-muted"><i class="bi bi-clock me-1"></i> Requested: ${formattedDate}</small>
+      </div>
+    </div>
 
-        <small class="text-muted"><i class="bi bi-clock me-1"></i>Requested: ${formattedDate}</small>
+    <!-- Job Details -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <div class="p-3 bg-light rounded h-100">
+          <p class="mb-2"><i class="bi bi-person-lines-fill text-primary me-2"></i><strong>Experience:</strong> ${job.experience}</p>
+          <p class="mb-2"><i class="bi bi-briefcase-fill text-primary me-2"></i><strong>Qualification:</strong> ${job.qualification}</p>
+          <p class="mb-0"><i class="bi bi-cash-stack text-primary me-2"></i><strong>Salary:</strong> ₹${job.salary || "Not Specified"}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-3 bg-light rounded h-100">
+          <p class="mb-2"><i class="bi bi-card-text text-primary me-2"></i><strong>Description:</strong></p>
+          <p class="small text-muted mb-0">${job.description.length > 180 ? job.description.substring(0, 180) + "..." : job.description}</p>
+        </div>
       </div>
     </div>
-    <hr>
+
+    <!-- Recruiter Details -->
     <div class="mt-3">
-      <h6 class="fw-bold text-secondary mb-2">Recruiter Details</h6>
-      <div class="row">
+      <h6 class="fw-bold text-dark mb-3"><i class="bi bi-building me-2 text-primary"></i>Recruiter Details</h6>
+      <div class="row g-3">
         <div class="col-md-6">
-          <p class="mb-1"><strong>Company:</strong> ${
-            job.recruiter.companyName
-          }</p>
-          <p class="mb-1"><strong>Contact Person:</strong> ${
-            job.recruiter.contactPersonName
-          }</p>
+          <p class="mb-1"><strong>Company:</strong> ${job.recruiter.companyName}</p>
+          <p class="mb-1"><strong>Contact Person:</strong> ${job.recruiter.contactPersonName}</p>
         </div>
         <div class="col-md-6">
-          <p class="mb-1"><strong>Email:</strong> <a href="mailto:${
-            job.recruiter.email
-          }">${job.recruiter.email}</a></p>
-          <p class="mb-1"><strong>Phone:</strong> <a href="tel:${
-            job.recruiter.number
-          }">${job.recruiter.number}</a></p>
+          <p class="mb-1"><strong>Email:</strong> <a href="mailto:${job.recruiter.email}" class="text-decoration-none">${job.recruiter.email}</a></p>
+          <p class="mb-1"><strong>Phone:</strong> <a href="tel:${job.recruiter.number}" class="text-decoration-none">${job.recruiter.number}</a></p>
         </div>
       </div>
     </div>
+
+    <!-- Actions -->
     <div class="mt-4 d-flex justify-content-end">
-      <button class="btn btn-outline-success px-4" onclick="openConfirmModal('${
-        job.requestId
-      }', this)">
+      <button class="btn btn-success px-4 shadow-sm" onclick="openConfirmModal('${job.requestId}', this)">
         <i class="bi bi-check-circle me-1"></i> Approve Job
       </button>
     </div>
   </div>
 `;
+
 
     jobRequestContainer.appendChild(card);
   });

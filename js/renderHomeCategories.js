@@ -27,7 +27,7 @@ async function fetchCategories() {
     });
     if (!res.ok) throw new Error("Failed to fetch categories");
     const data = await res.json();
-    console.log("Fetched categories:", data.categories);
+    // console.log("Fetched categories:", data.categories);
     renderCarouselSlides(data.categories);
   } catch (err) {
     console.error("Error fetching categories:", err);

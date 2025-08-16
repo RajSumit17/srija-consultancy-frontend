@@ -69,10 +69,12 @@ onAuthStateChanged(auth, async (user) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("jobRequestForm");
-
+  const submitRequest = document.getElementById("submitRequest");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Submitting job request...");
+    submitRequest.disabled = true;
+    submitRequest.textContent = "Submitting...";
     const jobData = {
       jobTitle: form.jobTitle.value.trim(),
       category: form.category.value,
@@ -102,15 +104,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Job request submitted successfully!");
+        notyf.success("Job request submitted successfully!");
         form.reset(); // Clear form
       } else {
         console.error(result);
-        alert("Failed to submit job request.");
+        notyf.error("Failed to submit job request.");
       }
     } catch (error) {
       console.error("Error submitting job request:", error);
-      alert("Something went wrong.");
+      notyf.error("Something went wrong.");
+    } finally {
+      submitRequest.disabled = false;
+      submitRequest.textContent = "Submit Request";
     }
   });
 });
@@ -154,81 +159,142 @@ function renderJobs(jobs) {
 
   jobs.forEach((job) => {
     const jobCard = document.createElement("div");
-    jobCard.className =
-      "list-group-item mb-3 p-3 border rounded shadow-sm job-card";
+    jobCard.className = "card mb-4 border-0 shadow-sm job-card";
+    jobCard.style.cssText = `
+      transition: all 0.3s ease;
+      border-radius: 12px !important;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    `;
 
-    // Add data-* attributes for search
+    // Hover effect
+    jobCard.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-2px)";
+      this.style.boxShadow = "0 8px 25px rgba(0,0,0,0.15)";
+    });
+
+    jobCard.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+      this.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+    });
+
+    // Add searchable data attributes
     jobCard.dataset.title = job.jobTitle?.toLowerCase() || "";
     jobCard.dataset.description = job.description?.toLowerCase() || "";
     jobCard.dataset.vacancy = job.vacancy?.toString().toLowerCase() || "";
     jobCard.dataset.location = job.location?.toLowerCase() || "";
 
     jobCard.innerHTML = `
-  <div class="job-card-header d-flex justify-content-between align-items-start mb-2">
-    <h5 class="role mb-1">${job.jobTitle}</h5>
-    <span class="badge ${
-      job.status === "approved"
-        ? "bg-success"
-        : job.status === "pending"
-        ? "bg-warning text-dark"
-        : "bg-secondary"
-    } text-capitalize">${job.status}</span>
+      <div class="card-body p-4">
+        <div class="job-card-header d-flex justify-content-between align-items-start mb-3">
+          <div class="flex-grow-1">
+            <h5 class="role mb-1 fw-bold text-primary">${job.jobTitle}</h5>
+            <div class="d-flex align-items-center gap-3">
+              <p class="text-muted mb-0 small">${job.category || 'General'} • ${job.jobType || 'Full-time'}</p>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-mortarboard-fill text-primary me-1"></i>
+                <span class="small text-muted fw-medium">${job.qualification}</span>
+              </div>
+            </div>
+          </div>
+          <span class="badge ${
+            job.status === "approved"
+              ? "bg-success"
+              : job.status === "pending"
+              ? "bg-warning text-dark"
+              : "bg-secondary"
+          } text-capitalize px-3 py-2">${job.status}</span>
+        </div>
 
-  </div>
+        <div class="job-description mb-3">
+          <p class="text-muted mb-2" style="line-height: 1.5;">${
+            job.description.length > 150
+              ? job.description.substring(0, 150) + "..."
+              : job.description
+          }</p>
+        </div>
 
-  <p class="job-description mb-2"><strong>Description:</strong> ${
-    job.description
-  }</p>
+        <div class="job-meta mb-3">
+          <div class="row g-2">
+            <div class="col-6 col-md-3">
+              <div class="info-card bg-light rounded p-2 text-center">
+                <i class="bi bi-people-fill text-primary mb-1"></i>
+                <div class="small fw-bold">${job.vacancy}</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Vacancies</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="info-card bg-light rounded p-2 text-center">
+                <i class="bi bi-geo-alt-fill text-primary mb-1"></i>
+                <div class="small fw-bold">${job.location}</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Location</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="info-card bg-light rounded p-2 text-center">
+                <i class="bi bi-cash-stack text-primary mb-1"></i>
+                <div class="small fw-bold">₹${job.salary || "Not specified"}</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Salary</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="info-card bg-light rounded p-2 text-center">
+                <i class="bi bi-briefcase-fill text-primary mb-1"></i>
+                <div class="small fw-bold">${job.experience}</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <div class="job-meta d-flex flex-wrap gap-2 mb-2">
-    <span class="info-tag"><i class="bi bi-people-fill me-1"></i> Vacancy: ${
-      job.vacancy
-    }</span>
-    <span class="info-tag"><i class="bi bi-geo-alt-fill me-1"></i> ${
-      job.location
-    }</span>
-    <span class="info-tag"><i class="bi bi-mortarboard-fill me-1"></i> ${
-      job.qualification
-    }</span>
-    <span class="info-tag"><i class="bi bi-briefcase-fill me-1"></i> ${
-      job.experience
-    } experience</span>
-  </div>
-
-  <div class="d-flex gap-2 mt-3">
-    <button class="btn btn-sm btn-outline-primary edit-btn" ${
-      job.status === "approved" ? "disabled" : ""
-    }>
-      <i class="bi bi-pencil-square me-1"></i> Edit
-    </button>
-    <button class="btn btn-sm btn-outline-danger delete-btn" ${
-      job.status === "approved" ? "disabled" : ""
-    }>
-      <i class="bi bi-trash me-1"></i> Delete
-    </button>
-  </div>
-`;
-
-    jobCard.querySelector(".edit-btn").addEventListener("click", function () {
-      openEditModal(job);
-    });
-
-    jobCard
-      .querySelector(".delete-btn")
-      .addEventListener("click", async function () {
-        const btn = this;
        
-          btn.disabled = true;
-          btn.textContent = "Deleting...";
-          await showDeleteConfirmation(job.id);
-          btn.disabled = false;
-          btn.textContent = "Delete";
-        
+
+        <div class="job-actions d-flex gap-2">
+          ${
+            job.status === "approved"
+              ? `
+            <div class="alert alert-warning w-100 p-2 m-0">
+              Updating this job post is disabled as it is approved.<br>
+              For any changes, please contact the admin.
+            </div>
+          `
+              : `
+            <button class="btn btn-sm btn-outline-primary edit-btn flex-fill">
+              <i class="bi bi-pencil-square me-1"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-outline-danger delete-btn flex-fill">
+              <i class="bi bi-trash me-1"></i> Delete
+            </button>
+          `
+          }
+        </div>
+      </div>
+    `;
+
+    // Attach event listeners only if buttons exist
+    const editBtn = jobCard.querySelector(".edit-btn");
+    if (editBtn) {
+      editBtn.addEventListener("click", function () {
+        openEditModal(job);
       });
+    }
+
+    const deleteBtn = jobCard.querySelector(".delete-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", async function () {
+        const btn = this;
+        btn.disabled = true;
+        btn.textContent = "Deleting...";
+        await showDeleteConfirmation(job.id);
+        btn.disabled = false;
+        btn.textContent = "Delete";
+      });
+    }
 
     jobListContainer.appendChild(jobCard);
   });
 }
+
 
 function openEditModal(job) {
   document.getElementById("editRequestId").value = job.id;
@@ -392,6 +458,28 @@ jobSearchInput.addEventListener("input", function () {
       location.includes(query);
 
     card.style.display = !query || match ? "" : "none";
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const jobSearchInput = document.getElementById("categorySearchInput");
+
+  jobSearchInput.addEventListener("input", function () {
+    const query = this.value.trim().toLowerCase();
+
+    document.querySelectorAll(".job-card").forEach((card) => {
+      const title = card.dataset.title || "";
+      const desc = card.dataset.description || "";
+      const vacancy = card.dataset.vacancy || "";
+      const location = card.dataset.location || "";
+
+      const match =
+        title.includes(query) ||
+        desc.includes(query) ||
+        vacancy.includes(query) ||
+        location.includes(query);
+
+      card.style.display = !query || match ? "" : "none";
+    });
   });
 });
 
