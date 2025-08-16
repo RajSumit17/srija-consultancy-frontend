@@ -85,12 +85,30 @@ function handleLogout() {
 
 window.handleLogout = handleLogout; // So it's available globally for the HTML `onclick`
 const fetchCurrentUser = () => {
+  // Get current page path to check if authentication is required
+  const currentPath = window.location.pathname;
+  const publicPages = [
+    '/index.html',
+    '/contact.html', 
+    '/about.html',
+    '/jobs.html',
+    '/blog.html',
+    '/feature.html',
+    '/testimonial.html'
+  ];
+  
+  // Check if current page is a public page
+  const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
+  
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
+      console.log("User is signed in:", user.email);
     } else {
       console.log("No user is signed in");
-       window.location.replace("../index.html");
+      // Only redirect if this is not a public page
+      if (!isPublicPage) {
+        window.location.replace("../index.html");
+      }
     }
   });
 };

@@ -49,30 +49,35 @@ async function fetchAndRenderCandidates() {
     const container = document.getElementById("candidateListContainer");
     container.innerHTML = ""; // Clear existing content
 
+    // Create a row to hold the cards
+    const row = document.createElement("div");
+    row.className = "row";
+
     candidates.forEach((candidate) => {
-      const card = document.createElement("div");
-      card.className = "job-card";
+      const col = document.createElement("div");
+      col.className = "col-md-6 col-lg-4 mb-4"; // Responsive: 2 per row (md), 3 per row (lg)
 
-      card.innerHTML = `
-  <div class="candidate-card p-4 rounded shadow-sm border bg-white mb-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h5 class="fw-bold text-primary mb-0">${candidate.name}</h5>
-      <a href="${candidate.resumeURL}" class="btn btn-outline-primary btn-sm" download target="_blank">
-        <i class="fas fa-download me-1"></i> Resume
-      </a>
-    </div>
+      col.innerHTML = `
+        <div class="candidate-card p-4 rounded shadow-sm border bg-white h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold text-primary mb-0">${candidate.name}</h5>
+            <a href="${candidate.resumeURL}" class="btn btn-outline-primary btn-sm" download target="_blank">
+              <i class="fas fa-download me-1"></i> Resume
+            </a>
+          </div>
 
-    <div class="candidate-details mb-2">
-      <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${candidate.email}</p>
-      <p class="mb-1"><i class="fas fa-phone text-muted me-2"></i> ${candidate.number}</p>
-      <p class="mb-0"><i class="fas fa-graduation-cap text-muted me-2"></i> ${candidate.education}</p>
-    </div>
-  </div>
-`;
+          <div class="candidate-details mb-2">
+            <p class="mb-1"><i class="fas fa-envelope text-muted me-2"></i> ${candidate.email}</p>
+            <p class="mb-1"><i class="fas fa-phone text-muted me-2"></i> ${candidate.number}</p>
+            <p class="mb-0"><i class="fas fa-graduation-cap text-muted me-2"></i> ${candidate.education}</p>
+          </div>
+        </div>
+      `;
 
-
-      container.appendChild(card);
+      row.appendChild(col);
     });
+
+    container.appendChild(row);
   } catch (error) {
     console.error("Error fetching candidates:", error.message);
     const container = document.getElementById("candidateListContainer");

@@ -421,6 +421,18 @@
             });
         });
     </script>
+      <div id="footer-placeholder"></div>
+
+      <!-- Your page content -->
+  
+      <script>
+        fetch('admin_footer.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+          });
+      </script>
+  
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    
     <script src="../lib/easing/easing.min.js"></script>
