@@ -128,23 +128,60 @@ const checkAuthentication = () => {
   
   console.log("Is public page:", isPublicPage);
   
+  // For production, be more lenient with authentication checks
+  const isProduction = window.location.hostname !== 'localhost' && 
+                      window.location.hostname !== '127.0.0.1';
+  
+  if (isProduction) {
+    console.log("Running in production mode");
+    // In production, only check authentication for clearly protected pages
+    const protectedPages = [
+      'admin_',
+      'candidate_',
+      'recruiter_'
+    ];
+    
+    const isProtectedPage = protectedPages.some(prefix => 
+      currentPath.includes(prefix) || currentPage?.startsWith(prefix)
+    );
+    
+    if (!isProtectedPage) {
+      console.log("Public page in production - allowing access");
+      return; // Don't run authentication check for public pages in production
+    }
+  }
+  
   // Add a small delay to ensure Firebase auth is initialized
   setTimeout(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("User is signed in:", user.email);
-      } else {
-        console.log("No user is signed in");
-        // Only redirect if this is not a public page
-        if (!isPublicPage) {
-          console.log("Redirecting to index.html - page requires authentication");
-          // Use absolute path to avoid relative path issues
-          window.location.replace("/index.html");
+    try {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("User is signed in:", user.email);
         } else {
-          console.log("Allowing access to public page");
+          console.log("No user is signed in");
+          // Only redirect if this is not a public page
+          if (!isPublicPage) {
+            console.log("Redirecting to index.html - page requires authentication");
+            // Use absolute path to avoid relative path issues
+            window.location.replace("/index.html");
+          } else {
+            console.log("Allowing access to public page");
+          }
         }
+      }, (error) => {
+        console.error("Firebase auth error:", error);
+        // If there's a Firebase error, allow access to public pages
+        if (isPublicPage) {
+          console.log("Firebase error but allowing access to public page");
+        }
+      });
+    } catch (error) {
+      console.error("Error in authentication check:", error);
+      // If there's any error, allow access to public pages
+      if (isPublicPage) {
+        console.log("Error occurred but allowing access to public page");
       }
-    });
+    }
   }, 500); // 500ms delay to ensure Firebase is ready
 };
 fetchCurrentUser()
